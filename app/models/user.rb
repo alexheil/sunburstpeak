@@ -10,6 +10,8 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true, length: { maximum: 50 }, format: { with: /\A[a-zA-Z0-9]+\Z/i }
   validate :validate_username
 
+  has_many :notes, dependent: :destroy
+
   def validate_username
     if User.where(email: username).exists?
       errors.add(:username, :invalid)
