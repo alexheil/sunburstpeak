@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+  <%= link_to current_user.username, user_path(current_user) %>
+<% end %>
+
+<%= link_to 'DAY', day_user_path(current_user)  %>
+
+<%= link_to 'WEEK', week_user_path(current_user)  %>
+
+<%= link_to 'MONTH', month_user_path(current_user)  %>
+
+<%= calendar start_date_param: :date, number_of_days: 1 do |date| %>
+  <%= date %>
+<% end %>

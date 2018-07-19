@@ -1,0 +1,5 @@
+<%= month_calendar do |day| %>    
+  <%= content_tag :div, class: "calendar-day", data: {date: day} do %>      
+    <%= day %>    
+  <% end %>  
+<% end %> 
