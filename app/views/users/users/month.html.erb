@@ -1,5 +1,10 @@
-<%= month_calendar do |day| %>    
+<%= month_calendar events: @notes do |day, notes| %>    
   <%= content_tag :div, class: "calendar-day", data: {date: day} do %>      
-    <%= day %>    
+    <%= day %>
+    <% if notes.any? %>
+      <div class="notes">
+        <%= pluralize(notes.count, "Note") %>
+      </div>
+    <% end %>
   <% end %>  
 <% end %> 

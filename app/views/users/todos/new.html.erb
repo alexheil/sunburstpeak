@@ -1,4 +1,4 @@
-<%= form_for(@note, url: user_notes_path(@user)) do |f| %>
+<%= form_for(@todo, url: user_todos_path(@user)) do |f| %>
 
   <div class="hidden">
     <%= f.text_field :start_time, :value => params[:start_time] %>
@@ -10,5 +10,5 @@
     <%= f.text_field :title, class: "text-field" %>
   </div>
 
-  <%= f.submit "Create note", data: { disable_with: 'Creating...' }, class: "submit-button" %>
+  <%= f.submit "Create todo", data: { disable_with: 'Creating...' }, class: "submit-button" %>
   <% end %>

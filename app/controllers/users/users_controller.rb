@@ -9,4 +9,12 @@ class Users::UsersController < ApplicationController
     @notes = Note.all
   end
 
+  def week
+    @notes = Note.all
+  end
+
+  def month
+    @notes = Note.all
+  end
+
 end

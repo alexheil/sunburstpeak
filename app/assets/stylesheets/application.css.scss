@@ -79,3 +79,20 @@ a {
   color: $white;
   background: $main;
 }
+
+.hidden {
+  display: none;
+}
+
+.calendar-day {
+  color: $black;
+  .notes {
+    color: blue;
+  }
+  .events {
+    color: yellow;
+  }
+  .todos {
+    color: green;
+  }
+}
