@@ -3,6 +3,7 @@ class Users::NotesController < ApplicationController
   before_action :set_user
 
   def show
+    @note = Note.friendly.find(params[:id])
   end
 
   def new

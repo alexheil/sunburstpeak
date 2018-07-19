@@ -1,3 +1,8 @@
-<%= calendar number_of_days: 1 do |date| %>
+<%= calendar number_of_days: 1, events: @notes do |date, notes| %>
   <%= date %>
+  <% notes.each do |note| %>
+    <div>
+      <%= note.title %>
+    </div>
+  <% end %>
 <% end %>
