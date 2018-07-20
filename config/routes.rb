@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get 'month'
     end
     resources :notes, controller: 'users/notes', except: :index
+    resources :todos, controller: 'users/todos', except: :index
   end
   
 end

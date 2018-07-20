@@ -1,4 +1,4 @@
-<%= calendar number_of_days: 1, events: @notes do |date, notes| %>
+<%= calendar number_of_days: 1, events: [@notes] do |date, notes| %>
   <%= date %>
   <% notes.each do |note| %>
     <div>

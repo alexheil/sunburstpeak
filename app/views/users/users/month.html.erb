@@ -1,4 +1,4 @@
-<%= month_calendar events: @notes do |day, notes| %>    
+<%= month_calendar events: (@notes + @todos) do |day, notes| %>    
   <%= content_tag :div, class: "calendar-day", data: {date: day} do %>      
     <%= day %>
     <% if notes.any? %>

@@ -7,7 +7,6 @@
     <%= link_to "+", new_user_todo_path(current_user, start_time: start_date, end_time: start_date) %>
   </div>
 
-<%= link_to(user_path(current_user)) do %>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -25,9 +24,7 @@
               <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block) %>
                 <% capture_haml(day, sorted_events.fetch(day, []), &block) %>
               <% else %>
-                <%= link_to day_user_path(current_user) + "?start_date=#{day}" do %>
-                  <% block.call day.strftime('%d'), sorted_events.fetch(day, []) %>
-                <% end %>
+                <% block.call day.strftime('%d'), sorted_events.fetch(day, []) %>
               <% end %>
             <% end %>
           <% end %>
@@ -35,5 +32,4 @@
       <% end %>
     </tbody>
   </table>
-<% end %>
 </div>

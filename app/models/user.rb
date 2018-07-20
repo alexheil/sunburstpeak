@@ -11,6 +11,7 @@ class User < ApplicationRecord
   validate :validate_username
 
   has_many :notes, dependent: :destroy
+  has_many :todos, dependent: :destroy
 
   def validate_username
     if User.where(email: username).exists?
