@@ -11,6 +11,8 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.string :end_hour
       t.datetime :start_time
       t.datetime :end_time
+      t.float :latitude
+      t.float :longitude
       t.string :slug
 
       t.timestamps

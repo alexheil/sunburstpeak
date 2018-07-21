@@ -10,7 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180718210425) do
+ActiveRecord::Schema.define(version: 20180721190028) do
+
+  create_table "cities", force: :cascade do |t|
+    t.string   "title"
+    t.string   "image"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "incorporated"
+    t.string   "population"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "slug"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "city_id"
+    t.integer  "event_type", default: 0
+    t.string   "title"
+    t.string   "venue"
+    t.string   "address"
+    t.string   "start_hour"
+    t.string   "end_hour"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "slug"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["city_id"], name: "index_events_on_city_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

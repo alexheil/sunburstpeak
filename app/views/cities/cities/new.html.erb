@@ -1,14 +1,9 @@
-<%= form_for(@todo, url: user_todos_path(@user)) do |f| %>
-
-  <div class="hidden">
-    <%= f.text_field :start_time, :value => params[:start_time] %>
-    <%= f.text_field :end_time, :value => params[:start_time] %>
-  </div>
+<%= form_for(@city, url: citiess_path) do |f| %>
 
   <div class="field">
     <%= f.label :title %>
     <%= f.text_field :title, class: "text-field" %>
   </div>
 
-  <%= f.submit "Create todo", data: { disable_with: 'Creating...' }, class: "submit-button" %>
+  <%= f.submit "Create city", data: { disable_with: 'Creating...' }, class: "submit-button" %>
   <% end %>
