@@ -40,8 +40,7 @@ gem 'friendly_id'
 gem 'devise'
 
 gem 'kaminari'
-
-gem 'stripe'
+gem 'geocoder'
 
 gem 'shrine'
 gem 'image_processing'

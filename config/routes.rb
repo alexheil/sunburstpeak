@@ -14,8 +14,10 @@ Rails.application.routes.draw do
       get 'week'
       get 'month'
     end
-    resources :notes, controller: 'users/notes', except: :index
-    resources :todos, controller: 'users/todos', except: :index
+  end
+
+  resources :cities, controller: 'cities/cities', except: :index do
+    resources :events, controller: 'cities/events', except: :index
   end
   
 end
