@@ -6,14 +6,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: "text-field" %>
+    <%= f.label :city_id %>
+    <%= f.text_field :city_id, :value => params[:city_id] %>
   </div>
 
   <div class="field">
-    <%= f.label :city_id %>
-    <%= f.hidden_field :city_id %>
-    <%= f.collection_select(:city_id, City.all, :id, :title) %>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "text-field" %>
   </div>
 
   <%= f.submit "Create event", data: { disable_with: 'Creating...' }, class: "submit-button" %>

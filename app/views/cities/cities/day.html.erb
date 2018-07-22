@@ -1,0 +1,8 @@
+<%= calendar number_of_days: 1, events: @events do |date, events| %>
+  <%= date %>
+  <% events.each do |event| %>
+    <div>
+      <%= event.title %>
+    </div>
+  <% end %>
+<% end %>

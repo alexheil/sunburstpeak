@@ -1,1 +1,16 @@
-<%= @todo.title %>
+<%= @city.title %>
+<% @city.events.each do |event| %>
+  <%= event.title %>
+  <%= event.city.title %>
+<% end %>
+
+<%= month_calendar events: (@events) do |day, events| %>    
+  <%= content_tag :div, class: "calendar-day", data: {date: day} do %>      
+    <%= day %>
+    <% if events.any? %>
+      <div class="events">
+        <%= pluralize(events.count, "Event") %>
+      </div>
+    <% end %>
+  <% end %>  
+<% end %>

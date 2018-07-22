@@ -3,8 +3,12 @@
     <%= link_to t('simple_calendar.previous', default: '<'), calendar.url_for_previous_view %>
     <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
     <%= link_to t('simple_calendar.next', default: '>'), calendar.url_for_next_view %> | 
-    <%= link_to "+", new_event_path(start_time: start_date, end_time: start_date) %>
-    <%= link_to "+", new_event_path(start_time: start_date, end_time: start_date) %>
+    <% if @user %>
+      <%= link_to "+", new_event_path(start_time: start_date, end_time: start_date) %>
+    <% end %>
+    <% if @city %>
+      <%= link_to "+", new_event_path(start_time: start_date, end_time: start_date, city_id: @city.id) %>
+    <% end %>
   </div>
 
   <table class="table table-striped">

@@ -17,7 +17,20 @@ Rails.application.routes.draw do
   end
 
   resources :cities, controller: 'cities/cities', except: :index do
-    resources :events, controller: 'cities/events', except: :index
+    member do
+      get 'day'
+      get 'week'
+      get 'month'
+    end
+    resources :events, controller: 'events/events', except: [:index, :new, :create]
+  end
+
+  resources :events, controller: 'events/events', only: [:new, :create] do
+    member do
+      get 'new_date_and_city'
+      get 'new_no_city'
+      get 'new_no_date'
+    end
   end
   
 end

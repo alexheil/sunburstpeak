@@ -4,6 +4,7 @@ class Cities::CitiesController < ApplicationController
 
   def show
     @city = City.friendly.find(params[:id])
+    @events = @city.events
   end
 
   def new
@@ -31,14 +32,17 @@ class Cities::CitiesController < ApplicationController
   end
 
   def day
+    @city = City.friendly.find(params[:id])
     @events = Event.all
   end
 
   def week
+    @city = City.friendly.find(params[:id])
     @events = Event.all
   end
 
   def month
+    @city = City.friendly.find(params[:id])
     @events = Event.all
   end
 
