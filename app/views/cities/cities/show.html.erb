@@ -1,8 +1,6 @@
 <%= @city.title %>
-<% @city.events.each do |event| %>
-  <%= event.title %>
-  <%= event.city.title %>
-<% end %>
+<%= @city.latitude %>
+<%= @city.longitude %>
 
 <%= month_calendar events: (@events) do |day, events| %>    
   <%= content_tag :div, class: "calendar-day", data: {date: day} do %>      
