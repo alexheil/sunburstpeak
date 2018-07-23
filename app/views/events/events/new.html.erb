@@ -15,6 +15,26 @@
   </div>
 
   <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "text-field" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "text-field" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "text-field" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "text-field" %>
+  </div>
+
+  <div class="field">
     <%= f.label :city_id %>
     <%= f.hidden_field :city_id %>
     <%= f.collection_select(:city_id, City.all, :id, :title) %>
