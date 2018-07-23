@@ -1,8 +1,12 @@
 <%= form_for(@event, url: events_path) do |f| %>
 
-  <div class="hidden">
-    <%= f.text_field :start_time, :value => params[:start_time] %>
-    <%= f.text_field :end_time, :value => params[:start_time] %>
+  <div class="field">
+    <%= f.label :month %>
+    <%= f.select :month, options_for_select(month_select)%>
+    <%= f.label :day %>
+    <%= f.select :day, options_for_select(day_select)%>
+    <%= f.label :year %>
+    <%= f.select :year, options_for_select(year_select)%>
   </div>
 
   <div class="field">
