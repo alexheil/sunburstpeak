@@ -9,6 +9,8 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.string :address
       t.string :start_hour
       t.string :end_hour
+      t.string :start_minute
+      t.string :end_minute
       t.string :month
       t.string :day
       t.string :year

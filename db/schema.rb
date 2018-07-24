@@ -30,12 +30,14 @@ ActiveRecord::Schema.define(version: 20180721190028) do
   create_table "events", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "city_id"
-    t.integer  "event_type", default: 0
+    t.integer  "event_type",   default: 0
     t.string   "title"
     t.string   "venue"
     t.string   "address"
     t.string   "start_hour"
     t.string   "end_hour"
+    t.string   "start_minute"
+    t.string   "end_minute"
     t.string   "month"
     t.string   "day"
     t.string   "year"
@@ -44,8 +46,8 @@ ActiveRecord::Schema.define(version: 20180721190028) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "slug"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.index ["city_id"], name: "index_events_on_city_id"
     t.index ["user_id"], name: "index_events_on_user_id"
   end

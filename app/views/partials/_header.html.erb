@@ -1,0 +1,19 @@
+<div class="header-container">
+  <div class="padding-horizontal">
+    <nav class="nav padding-vertical border-bottom">
+      <div class="site-title">
+        <%= link_to 'SUNBURST PEAK', root_url %>
+      </div>
+      <ul class="center">
+        <% if user_signed_in? %>
+          <li><%= link_to 'ADD EVENT', new_event_path, class: "nav-links" %></li>
+           | <li><%= link_to 'YOUR PAGE', user_path(current_user), class: "nav-links" %></li>
+           | <li><%= link_to 'SIGN OUT', sign_out_path, class: "nav-links" %></li>
+        <% else %>
+          <li><%= link_to 'SIGN IN', new_user_session_path, class: "nav-links" %></li>
+           | <li><%= link_to 'REGISTER', new_user_registration_path, class: "nav-links" %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</div>

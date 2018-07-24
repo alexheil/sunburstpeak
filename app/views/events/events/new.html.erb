@@ -10,8 +10,14 @@
   </div>
 
   <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: "text-field" %>
+    <%= f.label :start_hour %>
+    <%= f.select :start_hour, options_for_select(hour_select)%>
+    <%= f.label :start_minute %>
+    <%= f.select :start_minute, options_for_select(minute_select)%>
+    <%= f.label :end_hour %>
+    <%= f.select :end_hour, options_for_select(hour_select)%>
+    <%= f.label :end_minute %>
+    <%= f.select :end_minute, options_for_select(minute_select)%>
   </div>
 
   <div class="field">
