@@ -102,6 +102,20 @@ a {
   margin: 0 auto;
 }
 
+.title {
+  @include transition;
+  cursor: pointer;
+  color: $black;
+  margin: 2vh 0;
+  padding: 3vh 1vw;
+  border-radius: $radius;
+  font-weight: 400;
+  letter-spacing: .125em;
+  text-transform: uppercase;
+}
+
+/* ***************** CALENDAR ******************* */
+
 .simple-calendar th {
     padding: 6px;
     border-bottom: 0px solid $border;
