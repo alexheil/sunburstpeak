@@ -15,14 +15,14 @@
  *= require_self
  */
 
-$main: #47B975; /* OCEAN GREEN */
-$light: #A4C2A7; /* SPRING RAIN */
-$dark: #C8A223; /* HOKEY POKEY */
+$main: #DF803C; /* OCEAN GREEN */
+$light: #FFD3B5; /* SPRING RAIN */
+$dark: #CE414F; /* HOKEY POKEY */
 $green: #47B975; /* OCEAN GREEN */
 $border: #BEC8CE; /* LOBLOLLY */
 $red: #F44336; /* POMEGRANATE */
 $yellow: #ff9800; /* PIZAZZ */
-$black: #3f4c47; /* GREEN KELP */
+$black: #2F1A0C; /* GREEN KELP */
 $white: #FFFFFF; /* FAFAFA DESERT STORM */
 $grey: #EEEEEE; /* GALLERY */
 $fancy: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -30,6 +30,10 @@ $fancy: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
 $radius: 6px;
 $shadow: 0 10px 20px -12px rgba(0, 0, 0, 0.42), 0 3px 20px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
 $shadow-lite: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+$large: 2em;
+$med: 1.5em;
+$smed: 1.25em; 
+$small: 0.75em;
 
 @mixin transition {
   -webkit-transition: .3s;
@@ -40,12 +44,6 @@ $shadow-lite: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12
     -moz-transition: .3s;
     -o-transition: .3s;
   }
-}
-
-@mixin textLabels {
-  font-size: .75em;
-  font-weight: 700;
-  text-transform: uppercase;
 }
 
 body {
@@ -66,7 +64,7 @@ a {
   color: $main;
   text-decoration: none;
   &:hover {
-    color: $dark;
+    color: $light;
   }
 }
 
@@ -87,7 +85,7 @@ a {
 .calendar-day {
   color: $black;
   .events {
-    color: yellow;
+    color: $main;
   }
 }
 
@@ -106,59 +104,83 @@ a {
   @include transition;
   cursor: pointer;
   color: $black;
-  margin: 2vh 0;
-  padding: 3vh 1vw;
   border-radius: $radius;
-  font-weight: 400;
+  font-weight: 300;
   letter-spacing: .125em;
   text-transform: uppercase;
+  font-size: $large;
 }
 
 /* ***************** CALENDAR ******************* */
 
 .simple-calendar th {
-    padding: 6px;
-    border-bottom: 0px solid $border;
-    border-collapse: collapse;
-    border-left: 0px solid $border;
-    border-right: 0px solid $border;
-    border-top: 0px none #333333;
-    box-sizing: border-box;
-    text-align: left;
+  padding: 2vh 0;
+  border-bottom: 0px solid $border;
+  border-collapse: collapse;
+  border-left: 0px solid $border;
+  border-right: 0px solid $border;
+  border-top: 0px none #333333;
+  box-sizing: border-box;
+  text-align: left;
+  font-weight: 300;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .simple-calendar table {
-    -webkit-border-horizontal-spacing: 0px;
-    -webkit-border-vertical-spacing: 0px;
-    background-color: rgba(0, 0, 0, 0);
-    border: 0px solid #dddddd;
-    border-collapse: collapse;
-    box-sizing: border-box;
-    max-width: 100%;
-    width: 100%;
+  -webkit-border-horizontal-spacing: 0px;
+  -webkit-border-vertical-spacing: 0px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0px solid #dddddd;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  max-width: 100%;
+  width: 100%;
 }
 
 .simple-calendar td {
-    padding: 6px;
-    vertical-align: top;
-    width: 14%;
-    border-top: 1px solid $border;
-    border-bottom: 1px solid $border;
-    border-left: 1px solid $border;
-    border-right: 1px solid $border;
+  padding: 2vh 1vw;
+  vertical-align: top;
+  width: 14%;
+  border-top: 1px solid $border;
+  border-bottom: 1px solid $border;
+  border-left: 1px solid $border;
+  border-right: 1px solid $border;
 }
 
-.calendar-title {
+.calendar-heading {
   @include transition;
-  cursor: pointer;
   color: $black;
-  margin: 2vh 0;
-  padding: 3vh 1vw;
   border-radius: $radius;
-  font-weight: 400;
+  font-weight: 300;
   letter-spacing: .125em;
   text-transform: uppercase;
+  font-size: 2em;
+  padding: 5vh 0;
 }
+
+.simple-calendar .today {
+  background: $light;
+}
+
+.simple-calendar .next-month {
+  background: $grey;
+}
+
+.simple-calendar .prev-month {
+  background: $grey;
+}
+
+.day {
+  @include transition;
+  color: $black;
+  font-weight: 300;
+  letter-spacing: .125em;
+  text-transform: uppercase;
+  font-size: $smed;
+}
+
 /* ********************** HEADER ***************** */
 
 .header-container {
@@ -222,6 +244,10 @@ a {
 
 .padding-vertical {
   padding-top: 5vh;
+  padding-bottom: 5vh;
+}
+
+.padding-bottom {
   padding-bottom: 5vh;
 }
 

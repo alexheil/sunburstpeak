@@ -1,10 +1,10 @@
     <div class="simple-calendar">
       <div class="calendar-heading">
-        <%= link_to t('simple_calendar.previous', default: '<'), calendar.url_for_previous_view %>
+        <%= link_to t('simple_calendar.previous', default: '<'), calendar.url_for_previous_view %> | 
         <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
-        <%= link_to t('simple_calendar.next', default: '>'), calendar.url_for_next_view %>
+         | <%= link_to t('simple_calendar.next', default: '>'), calendar.url_for_next_view %>
         <% if @user %>
-          <%= link_to "+", new_event_path() %>
+          <%= link_to "+", new_event_path %>
         <% end %>
         <% if @city %>
           <%= link_to "+", new_no_date_event_path(city_id: @city.id) %>
@@ -15,7 +15,7 @@
         <thead>
           <tr>
             <% date_range.slice(0, 7).each do |day| %>
-              <th><%= t('date.abbr_day_names')[day.wday] %></th>
+              <th><%= t('date.day_names')[day.wday] %></th>
             <% end %>
           </tr>
         </thead>
@@ -29,7 +29,6 @@
                   <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block) %>
                     <% capture_haml(day, sorted_events.fetch(day, []), &block) %>
                   <% else %>
-                  <div class="one-space">
                     <% if @user %>
                       <%= link_to day_user_path(current_user) + "?start_date=#{day}" do %>
                         <% block.call day.strftime('%d'), sorted_events.fetch(day, []) %>
@@ -40,7 +39,6 @@
                         <% block.call day.strftime('%d'), sorted_events.fetch(day, []) %>
                       <% end %>
                     <% end %>
-                  </div>
                   <% end %>
                 <% end %>
 
