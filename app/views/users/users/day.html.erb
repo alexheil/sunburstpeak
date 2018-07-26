@@ -1,8 +1,19 @@
-<%= calendar number_of_days: 1, events: @events do |date, events| %>
-  <%= date %>
-  <% events.each do |event| %>
-    <div>
-      <%= event.title %>
+<div class="wrapper">
+  <div class="container">
+    <div class="padding-vertical">
+
+      <div class="title padding-bottom">
+        <%= @user.username %> | <%= link_to 'DAY', day_user_path(current_user)  %> | <%= link_to 'WEEK', week_user_path(current_user)  %> | <%= link_to 'MONTH', month_user_path(current_user)  %>
+      </div>
+
+      <%= calendar number_of_days: 1, events: @events do |date, events| %>
+        <% events.each do |event| %>
+          <div>
+            <%= event.title %>
+          </div>
+        <% end %>
+      <% end %>
+
     </div>
-  <% end %>
-<% end %>
+  </div>
+</div>

@@ -149,6 +149,10 @@ a {
   border-right: 1px solid $border;
 }
 
+.white {
+  background: white;
+}
+
 .calendar-heading {
   @include transition;
   color: $black;
