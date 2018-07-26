@@ -22,7 +22,9 @@ Rails.application.routes.draw do
       get 'week'
       get 'month'
     end
-    resources :events, controller: 'events/events', except: [:index, :new, :create]
+    resources :events, controller: 'events/events', except: [:index, :new, :create] do
+      resources :rsvps, controller: 'users/rsvps', only: [:create, :destroy]
+    end
   end
 
   resources :events, controller: 'events/events', only: [:new, :create] do

@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20180726063216) do
   create_table "rsvps", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "event_id"
+    t.datetime "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_rsvps_on_event_id"

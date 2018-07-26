@@ -9,7 +9,7 @@
       <%= calendar number_of_days: 1, events: @events do |date, events| %>
         <% events.each do |event| %>
           <div>
-            <%= event.title %>
+            <%= link_to event.title, city_event_path(event.city, event) %>
           </div>
         <% end %>
       <% end %>

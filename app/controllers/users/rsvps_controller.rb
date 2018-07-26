@@ -4,9 +4,10 @@ class Users::RsvpsController < ApplicationController
     @user = current_user
     @city = City.friendly.find(params[:city_id])
     @event = Event.friendly.find(params[:event_id])
-    @rsvp = rsvp.new
+    @rsvp = Rsvp.new
     @rsvp.user_id = @user.id
     @rsvp.event_id = @event.id
+    @rsvp.start_time = @event.start_time
     if @rsvp.save
       redirect_to city_event_path(@city, @event)
       # respond_to do |format|

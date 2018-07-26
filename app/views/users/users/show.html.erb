@@ -6,14 +6,14 @@
         <%= @user.username %> | <%= link_to 'DAY', day_user_path(current_user)  %> | <%= link_to 'WEEK', week_user_path(current_user)  %> | <%= link_to 'MONTH', month_user_path(current_user)  %>
       </div>
 
-      <%= month_calendar events: (@events) do |day, events| %>    
+      <%= month_calendar events: (@rsvps) do |day, rsvps| %>    
         <%= content_tag :div, class: "calendar-day", data: {date: day} do %>      
           <div class="day">
             <%= day %>
           </div>
-          <% if events.any? %>
+          <% if rsvps.any? %>
             <div class="events">
-              <%= pluralize(events.count, "Event") %>
+              <%= pluralize(rsvps.count, "Event") %>
             </div>
           <% end %>
         <% end %>  

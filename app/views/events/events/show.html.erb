@@ -11,3 +11,5 @@
     <%= link_to "RSVP", city_event_rsvps_path(@city, @event), :method => :post, class: "rsvp-button" %>
   </div>
 <% end %>
+
+<%= @event.rsvps.count %>

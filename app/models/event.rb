@@ -15,7 +15,7 @@ class Event < ApplicationRecord
 
     def generated_slug
       require 'securerandom' 
-      self.slug = SecureRandom.hex(64) if slug.blank?
+      self.slug = SecureRandom.hex(16) if slug.blank?
     end
 
     def pick_date
