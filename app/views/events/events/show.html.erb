@@ -1,3 +1,13 @@
 <%= @event.title %>
 <%= @event.city.title %>
 <%= @event.start_time %>
+
+<% if current_user.rsvped?(@event) %>
+  <div class="padding-bottom link-color">
+    <%= link_to "Delete RSVP", city_event_rsvp_path(@city, @event, current_user.rsvp_id(@event)), method: :delete, class: "delete-button" %>
+  </div>
+<% else %>
+  <div class="padding-bottom link-color">
+    <%= link_to "RSVP", city_event_rsvps_path(@city, @event), :method => :post, class: "rsvp-button" %>
+  </div>
+<% end %>

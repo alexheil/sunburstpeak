@@ -3,6 +3,10 @@ class Event < ApplicationRecord
   friendly_id :slug, use: :slugged
 
   belongs_to :city
+  belongs_to :user
+
+  has_many :rsvps, dependent: :destroy
+  has_many :users, through: :rsvps
 
   before_save :generated_slug
   before_save :pick_date

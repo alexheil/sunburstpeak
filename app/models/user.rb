@@ -10,8 +10,8 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true, length: { maximum: 50 }, format: { with: /\A[a-zA-Z0-9]+\Z/i }
   validate :validate_username
 
-  has_many :notes, dependent: :destroy
-  has_many :todos, dependent: :destroy
+  has_many :events, dependent: :destroy
+  has_many :rsvps, dependent: :destroy
 
   def validate_username
     if User.where(email: username).exists?
@@ -30,6 +30,18 @@ class User < ApplicationRecord
 
   before_save :should_generate_new_friendly_id?, if: :username_changed?
   before_save :downcase_username
+
+  def rsvped?(event)
+    Rsvp.exists? user_id: id, event_id: event.id
+  end
+
+  def unrsvp(event)
+    Rsvp.find_by(user_id: id, event_id: event.id).destroy
+  end
+
+  def rsvp_id(event)
+    Rsvp.find_by(user_id: id, event_id: event.id).id
+  end
 
   private
 
