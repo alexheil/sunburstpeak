@@ -2,8 +2,10 @@ class Event < ApplicationRecord
   extend FriendlyId
   friendly_id :slug, use: :slugged
 
+  geocoded_by :address, :latitude => :latitude, :longitude => :longitude
+  after_validation :geocode
+
   belongs_to :city
-  belongs_to :user
 
   has_many :rsvps, dependent: :destroy
   has_many :users, through: :rsvps

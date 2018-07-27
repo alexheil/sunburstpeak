@@ -2,15 +2,42 @@
   <div class="container">
     <div class="padding-vertical">
 
-      <div class="title padding-bottom">
+      <div class="title">
         <%= @user.username %> | <%= link_to 'DAY', day_user_path(current_user)  %> | <%= link_to 'WEEK', week_user_path(current_user)  %> | <%= link_to 'MONTH', month_user_path(current_user)  %>
       </div>
 
-      <%= calendar number_of_days: 1, events: @events do |date, events| %>
-        <% events.each do |event| %>
-          <div>
-            <%= link_to event.title, city_event_path(event.city, event) %>
+      <%= calendar number_of_days: 1, events: @rsvps do |date, rsvps| %>
+        <% rsvps.each do |rsvp| %>
+
+
+        <div class="padding-bottom">
+          <div class="flex padding-horizontal border-sides">
+            <div class="twenty-two">
+              <%= link_to(city_event_path(rsvp.event.city, rsvp.event)) do %>
+                <img class="thumbnail-image" srcset="https://inhabitat.com/wp-content/blogs.dir/1/files/2015/10/Joshua-Trees-in-Desert.jpg" width="100%" height="auto" />
+              <% end %>
+            </div>
+            <div class="fifty">
+              <div class="post-title padding-bottom-mini">
+                <%= link_to rsvp.event.title, city_event_path(rsvp.event.city, rsvp.event) %>
+              </div>
+              <div class="bold">
+                <%= rsvp.event.start_hour %>:<%= rsvp.event.start_minute %> - <%= rsvp.event.end_hour %>:<%= rsvp.event.end_minute %>
+              </div>
+              <div class="bold padding-bottom-mini">
+                <%= rsvp.event.venue %>, <%= rsvp.event.city.title %>
+              </div>
+              <div class="padding-bottom-mini">
+                description description description description description description description description description description description description description description
+              </div>
+            </div>
+            <div class="twenty-two center center-height title-lower">
+              <%= pluralize(rsvp.event.rsvps.count, "RSVP") %>
+            </div>
           </div>
+        </div>
+
+
         <% end %>
       <% end %>
 

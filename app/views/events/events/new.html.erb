@@ -1,4 +1,5 @@
 <%= form_for(@event, url: events_path) do |f| %>
+  <%= render 'partials/errors/event_errors' %>
 
   <div class="field">
     <%= f.label :month %>
@@ -26,18 +27,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: "text-field" %>
+    <%= f.label :venue %>
+    <%= f.text_field :venue, class: "text-field" %>
   </div>
 
   <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: "text-field" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: "text-field" %>
+    <%= f.label :address %>
+    <%= f.text_field :address, class: "text-field" %>
   </div>
 
   <div class="field">

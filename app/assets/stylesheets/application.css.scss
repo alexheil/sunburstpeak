@@ -23,7 +23,7 @@ $border: #BEC8CE; /* LOBLOLLY */
 $red: #F44336; /* POMEGRANATE */
 $yellow: #ff9800; /* PIZAZZ */
 $black: #2F1A0C; /* GREEN KELP */
-$white: #FFFFFF; /* FAFAFA DESERT STORM */
+$white: #F9F9F9; /* FAFAFA DESERT STORM */
 $grey: #EEEEEE; /* GALLERY */
 $fancy: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
 
@@ -33,7 +33,7 @@ $shadow-lite: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12
 $large: 2em;
 $med: 1.5em;
 $smed: 1.25em; 
-$small: 0.75em;
+$small: 0.85em;
 
 @mixin transition {
   -webkit-transition: .3s;
@@ -102,13 +102,35 @@ a {
 
 .title {
   @include transition;
-  cursor: pointer;
   color: $black;
-  border-radius: $radius;
   font-weight: 300;
   letter-spacing: .125em;
   text-transform: uppercase;
   font-size: $large;
+}
+
+.title-lower {
+  @include transition;
+  color: $black;
+  font-weight: 300;
+  letter-spacing: .125em;
+  font-size: $large;
+}
+
+.post-title {
+  @include transition;
+  color: $black;
+  font-weight: 300;
+  font-size: $med;
+  line-height: 1em;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.small-text {
+  font-size: $small;
 }
 
 /* ***************** CALENDAR ******************* */
@@ -185,12 +207,27 @@ a {
   font-size: $smed;
 }
 
+.background {
+  background: url('http://paperlief.com/images/sunset-over-mountains-and-water-wallpaper-3.jpg') no-repeat center center fixed;
+  background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -3;
+  opacity: .25;
+}
+
 /* ********************** HEADER ***************** */
 
 .header-container {
   width: 100%;
   margin: 0 auto;
-  background: $white;
+  background: transparent;
   a {
     color: $black;
   }
@@ -231,7 +268,6 @@ a {
   cursor: pointer;
   color: $white;
   padding: 3vh 1vw;
-  border-radius: $radius;
   font-weight: 400;
   letter-spacing: .125em;
   &:hover {
@@ -240,6 +276,12 @@ a {
 }
 
 /* ********************** SPACING ***************** */
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
 .padding-horizontal {
   padding-right: 2vw;
@@ -251,8 +293,17 @@ a {
   padding-bottom: 5vh;
 }
 
+.padding-vertical-small {
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
+
 .padding-bottom {
   padding-bottom: 5vh;
+}
+
+.padding-bottom-mini {
+  padding-bottom: 1vh;
 }
 
 .border-bottom {
@@ -261,4 +312,57 @@ a {
 
 .center {
   text-align: center;
+}
+
+.center-height {
+    line-height: 18vh;
+    height: 18vh;
+}
+
+.fifty {
+  margin: 0;
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.twenty-two {
+  margin: 0;
+  width: 22%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.border-sides {
+  @include transition;
+  border-left: 2px solid $border;
+  border-right: 2px solid $border;
+  &:hover {
+    border-left: 2px solid $black;
+    border-right: 2px solid $black;
+  }
+}
+
+.border-right {
+  @include transition;
+  border-right: 2px solid $border;
+  &:hover {
+    border-right: 2px solid $black;
+  }
+}
+
+.thumbnail-image {
+  width: 100%;
+  height: 18vh;
+  object-fit: cover;
+  display: block;
+  -webkit-backface-visibility: hidden;
+  -webkit-transition: .3s ease-in-out;
+  -moz-transition: .3s ease-in-out;
+  -o-transition: .3s ease-in-out;
+  &:hover {
+    -webkit-transition: .3s ease-in-out;
+    -moz-transition: .3s ease-in-out;
+    -o-transition: .3s ease-in-out;
+  }
 }

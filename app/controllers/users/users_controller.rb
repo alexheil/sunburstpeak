@@ -2,7 +2,7 @@ class Users::UsersController < ApplicationController
 
   def show
     @user = User.friendly.find(params[:id])
-    @rsvps = @user.rsvps.find_each
+    @rsvps = @user.rsvps
     @event
   end
 

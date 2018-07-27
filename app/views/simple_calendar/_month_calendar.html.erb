@@ -31,12 +31,12 @@
                   <% else %>
                     <% if @user %>
                       <%= link_to day_user_path(current_user) + "?start_date=#{day}" do %>
-                        <% block.call day.strftime('%d'), sorted_events.fetch(day, []) %>
+                        <% block.call day.strftime('%-d'), sorted_events.fetch(day, []) %>
                       <% end %>
                     <% end %>
                     <% if @city %>
                       <%= link_to day_city_path(@city) + "?start_date=#{day}" do %>
-                        <% block.call day.strftime('%d'), sorted_events.fetch(day, []) %>
+                        <% block.call day.strftime('%-d'), sorted_events.fetch(day, []) %>
                       <% end %>
                     <% end %>
                   <% end %>
