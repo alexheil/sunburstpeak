@@ -34,6 +34,7 @@ $large: 2em;
 $med: 1.5em;
 $smed: 1.25em; 
 $small: 0.85em;
+$letterspacer: .125em;
 
 @mixin transition {
   -webkit-transition: .3s;
@@ -104,7 +105,7 @@ a {
   @include transition;
   color: $black;
   font-weight: 300;
-  letter-spacing: .125em;
+  letter-spacing: $letterspacer;
   text-transform: uppercase;
   font-size: $large;
 }
@@ -113,7 +114,7 @@ a {
   @include transition;
   color: $black;
   font-weight: 300;
-  letter-spacing: .125em;
+  letter-spacing: $letterspacer;
   font-size: $large;
 }
 
@@ -131,6 +132,10 @@ a {
 
 .small-text {
   font-size: $small;
+}
+
+.dark {
+  color: $border;
 }
 
 /* ***************** CALENDAR ******************* */
@@ -180,7 +185,7 @@ a {
   color: $black;
   border-radius: $radius;
   font-weight: 300;
-  letter-spacing: .125em;
+  letter-spacing: $letterspacer;
   text-transform: uppercase;
   font-size: 2em;
   padding: 5vh 0;
@@ -202,7 +207,7 @@ a {
   @include transition;
   color: $black;
   font-weight: 300;
-  letter-spacing: .125em;
+  letter-spacing: $letterspacer;
   text-transform: uppercase;
   font-size: $smed;
 }
@@ -242,7 +247,7 @@ a {
     width: 24%;
     color: $white;
     font-weight: 400;
-    letter-spacing: .125em;
+    letter-spacing: $letterspacer;
     &:hover {
       text-decoration: none;
       color: $light;
@@ -269,10 +274,91 @@ a {
   color: $white;
   padding: 3vh 1vw;
   font-weight: 400;
-  letter-spacing: .125em;
+  letter-spacing: $letterspacer;
   &:hover {
     color: $main;
   }
+}
+
+/* ******************* FOOTER ******************* */
+
+.full-footer-container {
+  width: 100%;
+  clear: both;
+  padding-top: 15vh;
+}
+
+.footer {
+  font-size: .75em;
+  text-transform: uppercase;
+  width: 100%;
+  display: inline-block;
+  span {
+    float: left;
+  }
+  .nav-links {
+    @include transition;
+    color: $black;
+    padding: 0;
+    &:hover {
+      @include transition;
+      color: $main;
+    }
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    float: right;
+    li {
+      position: relative;
+      display: inline-block;
+      margin: 0 1vw;
+      &:first-child {
+        margin: 0 1vw 0 0;
+      }
+    }
+  }
+}
+
+.dark-background {
+  background: $black;
+}
+
+.home-footer {
+  font-size: .75em;
+  width: 100%;
+  .nav-links {
+    @include transition;
+    color: $white;
+    padding: 0;
+    &:hover {
+      color: $light;
+    }
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      list-style: none;
+      margin: 1vh 0;
+      &:first-child {
+        margin: 0 0 1vh 0;
+      }
+    }
+  }
+}
+
+.footer-disclaimer {
+  font-size: .75em;
+  text-align: center;
+  color: $black;
+  padding-bottom: 2vh;
+}
+
+.home-footer-disclaimer {
+  font-size: .75em;
+  text-align: center;
+  color: $white;
 }
 
 /* ********************** SPACING ***************** */
@@ -306,8 +392,16 @@ a {
   padding-bottom: 1vh;
 }
 
+.padding-top {
+  padding-top: 5vh;
+}
+
 .border-bottom {
   border-bottom: 1px solid $border;
+}
+
+.border-top {
+  border-top: 1px solid $border;
 }
 
 .center {
@@ -333,16 +427,6 @@ a {
   vertical-align: top;
 }
 
-.border-sides {
-  @include transition;
-  border-left: 2px solid $border;
-  border-right: 2px solid $border;
-  &:hover {
-    border-left: 2px solid $black;
-    border-right: 2px solid $black;
-  }
-}
-
 .border-right {
   @include transition;
   border-right: 2px solid $border;
@@ -364,5 +448,151 @@ a {
     -webkit-transition: .3s ease-in-out;
     -moz-transition: .3s ease-in-out;
     -o-transition: .3s ease-in-out;
+  }
+}
+
+/* ****************** FORMS ****************** */
+
+@mixin buttons {
+  @include transition;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  cursor: pointer;
+  box-sizing: border-box;
+  font-family: $fancy;
+  text-transform: uppercase;
+  letter-spacing: $letterspacer;
+  padding: 1vh 1vw;
+  background: transparent;
+  border: 2px solid $main;
+  color: $main;
+  -webkit-font-smoothing: unset;
+  &:hover {
+    background: $main;
+    color: $white;
+  }
+}
+
+.submit-button {
+  @include buttons;
+}
+
+textarea:focus, input:focus {
+  outline: none;
+}
+
+label {
+  -webkit-font-smoothing: antialiased;
+  text-transform: uppercase;
+  letter-spacing: $letterspacer;
+}
+
+input, textarea {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+
+::placeholder {
+    color: $border;
+  }
+
+@mixin fields {
+  width: 100%;
+  font-size: 1em;
+  font-weight: 400;
+  border: none;
+  display: inline-block;
+  box-sizing: border-box;
+  font-family: $fancy;
+  letter-spacing: .5px;
+}
+
+.StripeElement {
+  @include fields;
+  padding: 1vh 1vw;
+  background: $grey;
+  display: block;
+}
+
+select {
+  @include fields;
+  text-indent: 1vw;
+  background: $grey;
+  height: 3.75vh;
+  background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right $grey;
+  -webkit-appearance: none;
+  background-position-x: 98%;
+}
+
+.text-field {
+  @include fields;
+  padding: 1vh 1vw;
+  background: $grey;
+}
+
+.text-area {
+  @include fields;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 15vh;
+  max-height: 30vh;
+  height: 15vh;
+  padding: 1vh 1vw;
+  background: $grey;
+  display: block;
+}
+
+.field {
+  margin: 0 0 2vh 0;
+}
+
+.field-two-column {
+  margin: 0 0 2vh 0;
+  width: 49%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.field-three-column {
+  margin: 0 0 2vh 0;
+  width: 32%;
+  display: inline-block;
+  vertical-align: top;
+  select { 
+    background-position-x: 94%;
+  }
+}
+
+.padding-field-match {
+  padding: .51vh 1vw;
+}
+
+.form-container {
+  width: 40%;
+  margin: 0 auto;
+  a {
+    color: $main;
+    &:hover {
+      color: $light;
+    }
+  }
+  .main-color {
+    a {
+      color: $main;
+      &:hover {
+        color: $dark;
+      }
+    }
+  }
+  .link-color {
+    a {
+      color: $white;
+      &:hover {
+        color: $white;
+      }
+    }
   }
 }
