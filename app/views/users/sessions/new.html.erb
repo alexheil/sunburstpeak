@@ -5,12 +5,12 @@
     <div class="form-container padding-vertical">
 
 
-      <div class="padding-bottom title">
+      <div class="title">
         Sign in
       </div>
 
       <div class="padding-top">
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <%= devise_error_messages! %>
 
           <div class="field">

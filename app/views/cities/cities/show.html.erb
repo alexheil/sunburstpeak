@@ -1,14 +1,160 @@
-<%= @city.title %>
-<%= @city.latitude %>
-<%= @city.longitude %>
+<%= provide(:title, sanitize(@city.title)) %>
 
-<%= month_calendar events: (@events) do |day, events| %>    
-  <%= content_tag :div, class: "calendar-day", data: {date: day} do %>      
-    <%= day %>
-    <% if events.any? %>
-      <div class="events">
-        <%= pluralize(events.count, "Event") %>
+
+<div class="wrapper">
+  <div class="container">
+
+    <div class="padding-vertical border-bottom">
+      <div class="padding-bottom title">
+        <%= @city.title %>
       </div>
-    <% end %>
-  <% end %>  
-<% end %>
+
+      <div class="flex">
+        <div class="two-column">
+          <img class="profile-image" src="<%= @city.image %>">
+        </div>
+
+        <div class="two-column">
+          <div class="padding-bottom-mini">
+            <span class="bold">State:</span> <%= @city.state %>
+          </div>
+          <div class="padding-bottom-mini">
+            <span class="bold">Country:</span> <%= @city.country %>
+          </div>
+          <div class="padding-bottom-mini">
+            <span class="bold">Population:</span> <%= @city.population %>
+          </div>
+          <div class="padding-bottom-mini">
+            <span class="bold">Incorporated:</span> <%= @city.incorporated %>
+          </div>
+          <div class="padding-bottom-mini">
+            <span class="bold">Area code:</span> <%= @city.incorporated %>
+          </div>
+          <div class="padding-bottom-mini">
+            <span class="bold">Zip code:</span> <%= @city.incorporated %>
+          </div>
+          <div class="padding-bottom-mini">
+            <span class="bold">Description:</span> <%= @city.incorporated %> Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description
+          </div>
+          <div class="padding-bottom-mini">
+            <div class="mini-text">
+              A D V E R T I S E M E N T
+            </div>
+            <div class="black-box">
+              hey
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="padding-vertical border-bottom">
+      <div class="title">
+        What's going on in <%= @city.city %>?
+      </div>
+
+      <%= month_calendar events: (@events) do |day, events| %>    
+        <%= content_tag :div, class: "calendar-day", data: {date: day} do %>      
+          <div class="day">
+            <%= day %>
+          </div>
+          <% if events.any? %>
+            <div class="events">
+              <%= pluralize(events.count, "Event") %>
+            </div>
+          <% end %>
+        <% end %>  
+      <% end %>
+    </div>
+
+    <div class="padding-vertical">
+      <div class="padding-bottom title">
+        Things to do in <%= @city.city %> | <%= link_to "Free?", '#' %>
+      </div>
+
+      <div class="padding-bottom">
+        <div class="flex padding-horizontal border-sides">
+          <div class="twenty-two">
+            <%= link_to(city_path(@city)) do %>
+              <img class="thumbnail-image" srcset="https://inhabitat.com/wp-content/blogs.dir/1/files/2015/10/Joshua-Trees-in-Desert.jpg" width="100%" height="auto" />
+            <% end %>
+          </div>
+          <div class="fifty">
+            <div class="post-title padding-bottom-mini">
+              <%= link_to @city.title, city_path(@city) %>
+            </div>
+            <div class="bold">
+              <%= @city.city %>:<%= @city.city %> - <%= @city.city %>:<%= @city.city %>
+            </div>
+            <div class="bold padding-bottom-mini">
+              <%= @city.title %>, <%= @city.title %>
+            </div>
+            <div class="padding-bottom-mini">
+              description description description description description description description description description description description description description description
+            </div>
+          </div>
+          <div class="twenty-two center center-height title-lower">
+            Free
+          </div>
+        </div>
+      </div>
+
+      <div class="padding-bottom">
+        <div class="flex padding-horizontal border-sides">
+          <div class="twenty-two">
+            <%= link_to(city_path(@city)) do %>
+              <img class="thumbnail-image" srcset="https://inhabitat.com/wp-content/blogs.dir/1/files/2015/10/Joshua-Trees-in-Desert.jpg" width="100%" height="auto" />
+            <% end %>
+          </div>
+          <div class="fifty">
+            <div class="post-title padding-bottom-mini">
+              <%= link_to @city.title, city_path(@city) %>
+            </div>
+            <div class="bold">
+              <%= @city.city %>:<%= @city.city %> - <%= @city.city %>:<%= @city.city %>
+            </div>
+            <div class="bold padding-bottom-mini">
+              <%= @city.title %>, <%= @city.title %>
+            </div>
+            <div class="padding-bottom-mini">
+              description description description description description description description description description description description description description description
+            </div>
+          </div>
+          <div class="twenty-two center center-height title-lower">
+            Paid
+          </div>
+        </div>
+      </div>
+
+      <div class="padding-bottom">
+        <div class="flex padding-horizontal border-sides">
+          <div class="twenty-two">
+            <%= link_to(city_path(@city)) do %>
+              <img class="thumbnail-image" srcset="https://inhabitat.com/wp-content/blogs.dir/1/files/2015/10/Joshua-Trees-in-Desert.jpg" width="100%" height="auto" />
+            <% end %>
+          </div>
+          <div class="fifty">
+            <div class="post-title padding-bottom-mini">
+              <%= link_to @city.title, city_path(@city) %>
+            </div>
+            <div class="bold">
+              <%= @city.city %>:<%= @city.city %> - <%= @city.city %>:<%= @city.city %>
+            </div>
+            <div class="bold padding-bottom-mini">
+              <%= @city.title %>, <%= @city.title %>
+            </div>
+            <div class="padding-bottom-mini">
+              description description description description description description description description description description description description description description
+            </div>
+          </div>
+          <div class="twenty-two center center-height title-lower">
+            Free
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

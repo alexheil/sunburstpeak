@@ -1,46 +1,86 @@
-<%= form_for(@event, url: events_path) do |f| %>
-  <%= render 'partials/errors/event_errors' %>
+<%= provide(:title, "Create An Event") %>
 
-  <div class="field">
-    <%= f.label :month %>
-    <%= f.select :month, options_for_select(month_select)%>
-    <%= f.label :day %>
-    <%= f.select :day, options_for_select(day_select)%>
-    <%= f.label :year %>
-    <%= f.select :year, options_for_select(year_select)%>
+<div class="wrapper">
+  <div class="container">
+    <div class="form-container padding-vertical">
+
+
+      <div class="title">
+        Create an event
+      </div>
+
+      <div class="padding-top">
+        <%= form_for(@event, url: events_path) do |f| %>
+          <%= render 'partials/errors/event_errors' %>
+
+          <div class="field">
+            <div class="flex">
+              <div class="field-three-column">
+                <%= f.label :month %>
+                <%= f.select :month, options_for_select(month_select) %>
+              </div>
+              <div class="field-three-column">
+                <%= f.label :day %>
+                <%= f.select :day, options_for_select(day_select)%>
+              </div>
+              <div class="field-three-column">
+                <%= f.label :year %>
+                <%= f.select :year, options_for_select(year_select)%>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="flex">
+              <div class="field-two-column">
+                <%= f.label :start_hour %>
+                <%= f.select :start_hour, options_for_select(hour_select)%>
+              </div>
+              <div class="field-two-column">
+                <%= f.label :start_minute %>
+                <%= f.select :start_minute, options_for_select(minute_select)%>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="flex">
+              <div class="field-two-column">
+                <%= f.label :end_hour %>
+                <%= f.select :end_hour, options_for_select(hour_select)%>
+              </div>
+              <div class="field-two-column">
+                <%= f.label :end_minute %>
+                <%= f.select :end_minute, options_for_select(minute_select)%>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <%= f.label :title %>
+            <%= f.text_field :title, class: "text-field" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :venue %>
+            <%= f.text_field :venue, class: "text-field" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :address %>
+            <%= f.text_field :address, class: "text-field" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :city_id %>
+            <%= f.hidden_field :city_id %>
+            <%= f.collection_select(:city_id, City.all, :id, :title) %>
+          </div>
+
+          <%= f.submit "Create event", data: { disable_with: 'Creating...' }, class: "submit-button" %>
+        <% end %>
+      </div>
+
+
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :start_hour %>
-    <%= f.select :start_hour, options_for_select(hour_select)%>
-    <%= f.label :start_minute %>
-    <%= f.select :start_minute, options_for_select(minute_select)%>
-    <%= f.label :end_hour %>
-    <%= f.select :end_hour, options_for_select(hour_select)%>
-    <%= f.label :end_minute %>
-    <%= f.select :end_minute, options_for_select(minute_select)%>
-  </div>
-
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: "text-field" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :venue %>
-    <%= f.text_field :venue, class: "text-field" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :address %>
-    <%= f.text_field :address, class: "text-field" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :city_id %>
-    <%= f.hidden_field :city_id %>
-    <%= f.collection_select(:city_id, City.all, :id, :title) %>
-  </div>
-
-  <%= f.submit "Create event", data: { disable_with: 'Creating...' }, class: "submit-button" %>
-  <% end %>
+</div>

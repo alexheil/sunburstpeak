@@ -29,16 +29,19 @@
                   <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block) %>
                     <% capture_haml(day, sorted_events.fetch(day, []), &block) %>
                   <% else %>
-                    <% if @user %>
-                      <%= link_to day_user_path(current_user) + "?start_date=#{day}" do %>
-                        <% block.call day.strftime('%-d'), sorted_events.fetch(day, []) %>
-                      <% end %>
-                    <% end %>
+                    
+
                     <% if @city %>
                       <%= link_to day_city_path(@city) + "?start_date=#{day}" do %>
                         <% block.call day.strftime('%-d'), sorted_events.fetch(day, []) %>
                       <% end %>
+                    <% elsif @user %>
+                      <%= link_to day_user_path(current_user) + "?start_date=#{day}" do %>
+                        <% block.call day.strftime('%-d'), sorted_events.fetch(day, []) %>
+                      <% end %>
                     <% end %>
+
+
                   <% end %>
                 <% end %>
 

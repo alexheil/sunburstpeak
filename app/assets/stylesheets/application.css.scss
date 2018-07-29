@@ -435,9 +435,35 @@ a {
   }
 }
 
+.border-sides {
+  @include transition;
+  border-right: 3px solid $border;
+  border-left: 3px solid $border;
+  &:hover {
+    border-right: 3px solid $black;
+    border-left: 3px solid $black;
+  }
+}
+
 .thumbnail-image {
   width: 100%;
   height: 18vh;
+  object-fit: cover;
+  display: block;
+  -webkit-backface-visibility: hidden;
+  -webkit-transition: .3s ease-in-out;
+  -moz-transition: .3s ease-in-out;
+  -o-transition: .3s ease-in-out;
+  &:hover {
+    -webkit-transition: .3s ease-in-out;
+    -moz-transition: .3s ease-in-out;
+    -o-transition: .3s ease-in-out;
+  }
+}
+
+.profile-image {
+  width: 100%;
+  height: 50vh;
   object-fit: cover;
   display: block;
   -webkit-backface-visibility: hidden;
@@ -521,10 +547,11 @@ select {
   @include fields;
   text-indent: 1vw;
   background: $grey;
-  height: 3.75vh;
+  height: 4vh;
   background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right $grey;
   -webkit-appearance: none;
   background-position-x: 98%;
+  border-radius: 0px;
 }
 
 .text-field {
@@ -550,14 +577,12 @@ select {
 }
 
 .field-two-column {
-  margin: 0 0 2vh 0;
   width: 49%;
   display: inline-block;
   vertical-align: top;
 }
 
 .field-three-column {
-  margin: 0 0 2vh 0;
   width: 32%;
   display: inline-block;
   vertical-align: top;
@@ -595,4 +620,19 @@ select {
       }
     }
   }
+}
+
+/* **************** PAGES ******************* */
+
+.two-column {
+  margin: 0;
+  width: 49%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.black-box {
+  width: 100%;
+  height: 100px;
+  background: black;
 }
