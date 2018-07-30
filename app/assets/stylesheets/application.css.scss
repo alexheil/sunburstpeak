@@ -83,13 +83,6 @@ a {
   display: none;
 }
 
-.calendar-day {
-  color: $black;
-  .events {
-    color: $main;
-  }
-}
-
 .wrapper {
   width: 100%;
   max-width: 1920px;
@@ -141,6 +134,21 @@ a {
 
 .dark {
   color: $border;
+}
+
+.background {
+  background: url('http://paperlief.com/images/sunset-over-mountains-and-water-wallpaper-3.jpg') no-repeat center center fixed;
+  background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -3;
+  opacity: .25;
 }
 
 /* ***************** CALENDAR ******************* */
@@ -217,19 +225,11 @@ a {
   font-size: $smed;
 }
 
-.background {
-  background: url('http://paperlief.com/images/sunset-over-mountains-and-water-wallpaper-3.jpg') no-repeat center center fixed;
-  background-size: cover;
-  -o-background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -3;
-  opacity: .25;
+.calendar-day {
+  color: $black;
+  .events {
+    color: $main;
+  }
 }
 
 /* ********************** HEADER ***************** */
@@ -399,6 +399,10 @@ a {
 
 .padding-top {
   padding-top: 5vh;
+}
+
+.padding-top-mini {
+  padding-top: 1vh;
 }
 
 .border-bottom {
@@ -629,9 +633,21 @@ select {
 
 /* **************** PAGES ******************* */
 
+.facebook {
+
+}
+
+
 .two-column {
   margin: 0;
   width: 49%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.sixteen {
+  margin: 0;
+  width: 16%;
   display: inline-block;
   vertical-align: top;
 }
@@ -640,4 +656,14 @@ select {
   width: 100%;
   height: 100px;
   background: black;
+}
+
+/* ******************* MEDIA QUERIES *************** */
+
+@media screen and (max-width: 1024px) {
+
+  .form-container {
+    width: 100%;
+  }
+
 }

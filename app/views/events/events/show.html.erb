@@ -1,17 +1,94 @@
-<%= @event.title %>
-<%= @event.city.title %>
-<%= @event.start_time %>
+<%= provide(:title, sanitize(@event.title)) %>
 
-<% if current_user.rsvped?(@event) %>
-  <div class="padding-bottom link-color">
-    <%= link_to "Delete RSVP", city_event_rsvp_path(@city, @event, current_user.rsvp_id(@event)), method: :delete, class: "delete-button" %>
-  </div>
-<% else %>
-  <div class="padding-bottom link-color">
-    <%= link_to "RSVP", city_event_rsvps_path(@city, @event), :method => :post, class: "rsvp-button" %>
-  </div>
-<% end %>
 
-<%= @event.rsvps.count %>
-<%= @event.latitude %>
-<%= @event.longitude %>
+<div class="wrapper">
+  <div class="container">
+
+    <div class="padding-vertical border-bottom">
+      <div class="padding-bottom title">
+        <%= @event.title %>
+      </div>
+
+      <div class="flex">
+        <div class="two-column">
+          <img class="profile-image" src="http://www.visitbuffaloniagara.com/content/uploads/2014/10/hero-video-3.jpg">
+        </div>
+
+        <div class="two-column">
+
+          <div class="two-column">
+            <% if current_user.rsvped?(@event) %>
+              <div class="padding-bottom-mini link-color">
+                <%= link_to "Delete RSVP", city_event_rsvp_path(@city, @event, current_user.rsvp_id(@event)), method: :delete, class: "submit-button" %>
+              </div>
+            <% else %>
+              <div class="padding-bottom-mini link-color">
+                <%= link_to "RSVP", city_event_rsvps_path(@city, @event), :method => :post, class: "submit-button" %>
+              </div>
+            <% end %>
+          </div>
+          <div class="sixteen">
+              <div class="padding-bottom-mini submit-button">
+                Share
+              </div>
+          </div>
+          <div class="sixteen">
+              <div class="padding-bottom-mini submit-button">
+                Share
+              </div>
+          </div>
+          <div class="sixteen">
+              <div class="padding-bottom-mini submit-button">
+                Share
+              </div>
+          </div>
+
+          <div class="padding-bottom-mini">
+            <span class="bold">RSVPs:</span> <%= @event.rsvps.count %>
+          </div>
+          <div class="padding-bottom-mini">
+            <span class="bold">City:</span> <%= @event.city.city %>
+          </div>
+          <div class="padding-bottom-mini">
+            <span class="bold">State:</span> <%= @event.city.state %>
+          </div>
+          <div class="padding-bottom-mini">
+            <span class="bold">Country:</span> <%= @event.city.country %>
+          </div>
+          <div class="padding-bottom-mini">
+            <span class="bold">Start:</span> <%= @event.start_hour %>:<%= @event.start_minute %>
+          </div>
+          <div class="padding-bottom-mini">
+            <span class="bold">End:</span> <%= @event.end_hour %>:<%= @event.end_minute %>
+          </div>
+          <div class="padding-bottom-mini">
+            <span class="bold">Venue:</span> <%= @event.venue %>
+          </div>
+          <div class="padding-bottom-mini">
+            <span class="bold">Address:</span> <%= @event.address %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="padding-bottom-mini padding-top-mini border-bottom">
+      <div class="black-box">
+        hey
+      </div>
+    </div>
+
+    <div class="padding-vertical">
+      <div class="flex">
+        <div class="two-column">
+          description
+        </div>
+        <div class="two-column">
+          map
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
