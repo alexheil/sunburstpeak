@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20180726063216) do
     t.integer  "city_id"
     t.integer  "event_type",   default: 0
     t.string   "title"
+    t.string   "image_data"
     t.string   "venue"
     t.string   "address"
     t.string   "start_hour"

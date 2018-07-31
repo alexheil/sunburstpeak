@@ -5,6 +5,7 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.references :city
       t.integer :event_type, default: 0
       t.string :title
+      t.string :image_data
       t.string :venue
       t.string :address
       t.string :start_hour

@@ -633,8 +633,34 @@ select {
 
 /* **************** PAGES ******************* */
 
-.facebook {
+.facebook-button {
+  @include buttons;
+  color: #3b5998;
+  border: 2px solid #3b5998;
+  &:hover {
+    background: #3b5998;
+    color: $white;
+  }
+}
 
+.twitter-button {
+  @include buttons;
+  color: #55acee;
+  border: 2px solid #55acee;
+  &:hover {
+    background: #55acee;
+    color: $white;
+  }
+}
+
+.reddit-button {
+  @include buttons;
+  color: #FF4500;
+  border: 2px solid #ff4500;
+  &:hover {
+    background: #ff4500;
+    color: $white;
+  }
 }
 
 

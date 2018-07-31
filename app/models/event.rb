@@ -2,6 +2,8 @@ class Event < ApplicationRecord
   extend FriendlyId
   friendly_id :slug, use: :slugged
 
+  include ImageUploader[:image]
+
   geocoded_by :address, :latitude => :latitude, :longitude => :longitude
   after_validation :geocode
 

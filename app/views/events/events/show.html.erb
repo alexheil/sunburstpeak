@@ -11,7 +11,7 @@
 
       <div class="flex">
         <div class="two-column">
-          <img class="profile-image" src="http://www.visitbuffaloniagara.com/content/uploads/2014/10/hero-video-3.jpg">
+          <img class="profile-image" src="<%= @event.image_url(:original) %>">
         </div>
 
         <div class="two-column">
@@ -28,26 +28,29 @@
             <% end %>
           </div>
           <div class="sixteen">
-              <div class="padding-bottom-mini submit-button">
-                Share
-              </div>
+            <div class="padding-bottom-mini facebook-button">
+              F
+            </div>
           </div>
           <div class="sixteen">
-              <div class="padding-bottom-mini submit-button">
-                Share
-              </div>
+            <div class="padding-bottom-mini twitter-button">
+              T
+            </div>
           </div>
           <div class="sixteen">
-              <div class="padding-bottom-mini submit-button">
-                Share
-              </div>
+            <div class="padding-bottom-mini reddit-button">
+              R
+            </div>
           </div>
 
           <div class="padding-bottom-mini">
             <span class="bold">RSVPs:</span> <%= @event.rsvps.count %>
           </div>
           <div class="padding-bottom-mini">
-            <span class="bold">City:</span> <%= @event.city.city %>
+            <span class="bold">Date:</span> <%= @event.month %>.<%= @event.day %>.<%= @event.year %>
+          </div>
+          <div class="padding-bottom-mini">
+            <span class="bold">City:</span> <%= link_to @event.city.city, city_path(@city) %>
           </div>
           <div class="padding-bottom-mini">
             <span class="bold">State:</span> <%= @event.city.state %>
@@ -84,7 +87,7 @@
           description
         </div>
         <div class="two-column">
-          map
+          <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@event.latitude},#{@event.longitude}&markers=#{@event.latitude},#{@event.longitude}&zoom=15&size=640x400&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8" %>
         </div>
       </div>
     </div>
