@@ -2,6 +2,7 @@ class CreateThings < ActiveRecord::Migration[5.0]
   def change
     create_table :things do |t|
       t.references :city
+      t.integer :thing_type, default: 0
       t.string :title
       t.string :image
       t.string :venue

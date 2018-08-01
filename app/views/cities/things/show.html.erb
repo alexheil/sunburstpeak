@@ -1,4 +1,4 @@
-<%= provide(:title, sanitize(@event.title)) %>
+<%= provide(:title, sanitize(@thing.title)) %>
 
 
 <div class="wrapper">
@@ -6,26 +6,18 @@
 
     <div class="padding-vertical border-bottom">
       <div class="padding-bottom title">
-        <%= @event.title %>
+        <%= @thing.title %>
       </div>
 
       <div class="flex">
         <div class="two-column">
-          <img class="profile-image" src="<%= @event.image_url(:original) %>">
+          <img class="profile-image" src="<%= @thing.image %>">
         </div>
 
         <div class="two-column">
 
           <div class="two-column">
-            <% if current_user.rsvped?(@event) %>
-              <div class="padding-bottom-mini link-color">
-                <%= link_to "Delete RSVP", city_event_rsvp_path(@city, @event, current_user.rsvp_id(@event)), method: :delete, class: "submit-button" %>
-              </div>
-            <% else %>
-              <div class="padding-bottom-mini link-color">
-                <%= link_to "RSVP", city_event_rsvps_path(@city, @event), :method => :post, class: "submit-button" %>
-              </div>
-            <% end %>
+            hey
           </div>
           <div class="sixteen">
             <div class="padding-bottom-mini facebook-button">
@@ -44,31 +36,19 @@
           </div>
 
           <div class="padding-bottom-mini">
-            <span class="bold">RSVPs:</span> <%= @event.rsvps.count %>
+            <span class="bold">City:</span> <%= link_to @thing.city.city, city_path(@city) %>
           </div>
           <div class="padding-bottom-mini">
-            <span class="bold">Date:</span> <%= @event.month %>.<%= @event.day %>.<%= @event.year %>
+            <span class="bold">State:</span> <%= @thing.city.state %>
           </div>
           <div class="padding-bottom-mini">
-            <span class="bold">City:</span> <%= link_to @event.city.city, city_path(@city) %>
+            <span class="bold">Country:</span> <%= @thing.city.country %>
           </div>
           <div class="padding-bottom-mini">
-            <span class="bold">State:</span> <%= @event.city.state %>
+            <span class="bold">Venue:</span> <%= @thing.venue %>
           </div>
           <div class="padding-bottom-mini">
-            <span class="bold">Country:</span> <%= @event.city.country %>
-          </div>
-          <div class="padding-bottom-mini">
-            <span class="bold">Start:</span> <%= @event.start_hour %>:<%= @event.start_minute %>
-          </div>
-          <div class="padding-bottom-mini">
-            <span class="bold">End:</span> <%= @event.end_hour %>:<%= @event.end_minute %>
-          </div>
-          <div class="padding-bottom-mini">
-            <span class="bold">Venue:</span> <%= @event.venue %>
-          </div>
-          <div class="padding-bottom-mini">
-            <span class="bold">Address:</span> <%= @event.address %>
+            <span class="bold">Address:</span> <%= @thing.address %>
           </div>
         </div>
 
@@ -87,7 +67,7 @@
           description
         </div>
         <div class="two-column">
-          <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@event.latitude},#{@event.longitude}&markers=#{@event.latitude},#{@event.longitude}&zoom=15&size=640x400&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8" %>
+          <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@thing.latitude},#{@thing.longitude}&markers=#{@thing.latitude},#{@thing.longitude}&zoom=15&size=640x400&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8" %>
         </div>
       </div>
     </div>

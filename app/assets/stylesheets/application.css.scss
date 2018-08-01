@@ -151,6 +151,14 @@ a {
   opacity: .25;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
+.letter-spacing {
+  letter-spacing: .125em;
+}
+
 /* ***************** CALENDAR ******************* */
 
 .simple-calendar th {
@@ -662,7 +670,6 @@ select {
     color: $white;
   }
 }
-
 
 .two-column {
   margin: 0;

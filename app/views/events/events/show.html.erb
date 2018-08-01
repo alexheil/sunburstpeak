@@ -44,31 +44,31 @@
           </div>
 
           <div class="padding-bottom-mini">
-            <span class="bold">RSVPs:</span> <%= @event.rsvps.count %>
+            <span class="uppercase letter-spacing">RSVPs:</span> <%= @event.rsvps.count %>
           </div>
           <div class="padding-bottom-mini">
-            <span class="bold">Date:</span> <%= @event.month %>.<%= @event.day %>.<%= @event.year %>
+            <span class="uppercase letter-spacing">Date:</span> <%= @event.month %>.<%= @event.day %>.<%= @event.year %>
           </div>
           <div class="padding-bottom-mini">
-            <span class="bold">City:</span> <%= link_to @event.city.city, city_path(@city) %>
+            <span class="uppercase letter-spacing">City:</span> <%= link_to @event.city.city, city_path(@city) %>
           </div>
           <div class="padding-bottom-mini">
-            <span class="bold">State:</span> <%= @event.city.state %>
+            <span class="uppercase letter-spacing">State:</span> <%= @event.city.state %>
           </div>
           <div class="padding-bottom-mini">
-            <span class="bold">Country:</span> <%= @event.city.country %>
+            <span class="uppercase letter-spacing">Country:</span> <%= @event.city.country %>
           </div>
           <div class="padding-bottom-mini">
-            <span class="bold">Start:</span> <%= @event.start_hour %>:<%= @event.start_minute %>
+            <span class="uppercase letter-spacing">Start:</span> <%= @event.start_hour %>:<%= @event.start_minute %>
           </div>
           <div class="padding-bottom-mini">
-            <span class="bold">End:</span> <%= @event.end_hour %>:<%= @event.end_minute %>
+            <span class="uppercase letter-spacing">End:</span> <%= @event.end_hour %>:<%= @event.end_minute %>
           </div>
           <div class="padding-bottom-mini">
-            <span class="bold">Venue:</span> <%= @event.venue %>
+            <span class="uppercase letter-spacing">Venue:</span> <%= @event.venue %>
           </div>
           <div class="padding-bottom-mini">
-            <span class="bold">Address:</span> <%= @event.address %>
+            <span class="uppercase letter-spacing">Address:</span> <%= @event.address %>
           </div>
         </div>
 
@@ -84,7 +84,30 @@
     <div class="padding-vertical">
       <div class="flex">
         <div class="two-column">
-          description
+          <div class="padding-bottom">
+            <div class="uppercase letter-spacing">
+              Description
+            </div>
+              <%= @event.description %>
+          </div>
+          <div class="padding-bottom">
+            <div class="uppercase letter-spacing">
+              What to wear
+            </div>
+              <%= @event.what_to_wear %>
+          </div>
+          <div class="padding-bottom">
+            <div class="uppercase letter-spacing">
+              What to bring
+            </div>
+              <%= @event.what_to_bring %>
+          </div>
+          <div class="padding-bottom">
+            <div class="uppercase letter-spacing">
+              Where to park
+            </div>
+              <%= @event.where_to_park %>
+          </div>
         </div>
         <div class="two-column">
           <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@event.latitude},#{@event.longitude}&markers=#{@event.latitude},#{@event.longitude}&zoom=15&size=640x400&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8" %>

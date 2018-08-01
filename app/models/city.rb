@@ -5,7 +5,8 @@ class City < ApplicationRecord
   geocoded_by :geocoding, :latitude => :latitude, :longitude => :longitude
   after_validation :geocode
 
-  has_many :events
+  has_many :events, dependent: :destroy
+  has_many :things, dependent: :destroy
 
   before_save :should_generate_new_friendly_id?, if: :title_changed?
   before_save :title_calculator
