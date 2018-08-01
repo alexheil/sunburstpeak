@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     resources :events, controller: 'events/events', except: [:index, :new, :create] do
       resources :rsvps, controller: 'users/rsvps', only: [:create, :destroy]
     end
+    resources :things, controller: 'cities/things' do
   end
 
   resources :events, controller: 'events/events', only: [:new, :create] do

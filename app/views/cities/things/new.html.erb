@@ -1,0 +1,64 @@
+<%= provide(:title, "Create A Thing") %>
+
+<div class="wrapper">
+  <div class="container">
+    <div class="form-container padding-vertical">
+
+
+      <div class="title">
+        Create a thing
+      </div>
+
+      <div class="padding-top">
+        <%= form_for(@thing, url: city_things_path) do |f| %>
+          <%= render 'partials/errors/event_errors' %>
+
+
+          <div class="field">
+            <%= f.label :title %>
+            <%= f.text_field :title, class: "text-field" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :image %>
+            <%= f.text_field :image, class: "text-field" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :venue %>
+            <%= f.text_field :venue, class: "text-field" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :address %>
+            <%= f.text_field :address, class: "text-field" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :description %>
+            <%= f.text_area :description, class: "text-field" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :what_to_bring %>
+            <%= f.text_area :what_to_bring, class: "text-area" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :what_to_wear %>
+            <%= f.text_area :what_to_wear, class: "text-area" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :where_to_park %>
+            <%= f.text_area :where_to_park, class: "text-area" %>
+          </div>
+
+          <%= f.submit "Create thing", data: { disable_with: 'Creating...' }, class: "submit-button" %>
+        <% end %>
+      </div>
+
+
+    </div>
+  </div>
+</div>

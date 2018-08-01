@@ -2,12 +2,18 @@ class Cities::ThingsController < ApplicationController
 
   before_action :set_user
 
+  def index
+    @city = City.friendly.find(params[:city_id])
+    @things = @city.things
+  end
+
   def show
     @city = City.friendly.find(params[:city_id])
     @thing = Thing.friendly.find(params[:id])
   end
 
   def new
+    @city = City.friendly.find(params[:city_id])
     @thing = Thing.new
   end
 
