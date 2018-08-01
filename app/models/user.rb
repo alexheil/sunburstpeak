@@ -13,6 +13,9 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :rsvps, dependent: :destroy
 
+  before_save :should_generate_new_friendly_id?, if: :username_changed?
+  before_save :downcase_username
+
   def validate_username
     if User.where(email: username).exists?
       errors.add(:username, :invalid)
@@ -27,9 +30,6 @@ class User < ApplicationRecord
       where(conditions.to_h).first
     end
   end
-
-  before_save :should_generate_new_friendly_id?, if: :username_changed?
-  before_save :downcase_username
 
   def rsvped?(event)
     Rsvp.exists? user_id: id, event_id: event.id

@@ -8,6 +8,12 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.string :image_data
       t.string :venue
       t.string :address
+      t.string :category
+      t.text :description
+      t.text :what_to_bring
+      t.text :what_to_wear
+      t.text :where_to_park
+      t.string :website
       t.string :start_hour
       t.string :end_hour
       t.string :start_minute
