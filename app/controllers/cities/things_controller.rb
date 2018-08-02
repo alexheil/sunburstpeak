@@ -50,7 +50,7 @@ class Cities::ThingsController < ApplicationController
     end
 
     def thing_params
-      params.require(:thing).permit(:city_id, :title, :venue, :category, :description, :what_to_bring, :what_to_wear, :where_to_park, :website, :address, :latitude, :longitude, :image)
+      params.require(:thing).permit(:city_id, :title, :venue, :category, :description, :what_to_bring, :what_to_wear, :where_to_park, :website, :address, :latitude, :longitude, :image, :thing_type)
     end
 
 end

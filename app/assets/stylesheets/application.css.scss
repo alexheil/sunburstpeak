@@ -691,6 +691,40 @@ select {
   background: black;
 }
 
+.checked-tab {
+  @include transition;
+  box-sizing: border-box;
+  background: $main;
+  color: $white;
+  padding: 1vh 1vw;
+  text-transform: uppercase;
+  width: 49%;
+  text-align: center;
+  cursor: pointer;
+  font-family: $fancy;
+  border: 1px solid $main;
+  -webkit-font-smoothing: unset;
+}
+
+.unchecked-tab {
+  box-sizing: border-box;
+  @include transition;
+  background: $grey;
+  color: $black;
+  padding: 1vh 1vw;
+  text-transform: uppercase;
+  width: 49%;
+  text-align: center;
+  cursor: pointer;
+  font-family: $fancy;
+  border: 1px solid transparent;
+  -webkit-font-smoothing: unset;
+  &:hover {
+    background: $grey;
+    border: 1px solid $grey;
+  }
+}
+
 /* ******************* MEDIA QUERIES *************** */
 
 @media screen and (max-width: 1024px) {

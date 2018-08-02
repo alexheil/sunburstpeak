@@ -27,11 +27,8 @@ Rails.application.routes.draw do
     resources :events, controller: 'events/events', except: [:index, :new, :create] do
       resources :rsvps, controller: 'users/rsvps', only: [:create, :destroy]
     end
-    resources :things, controller: 'cities/things' do
-      member do
-        get 'free'
-      end
-    end
+    resources :things, controller: 'cities/things'
+    get 'free' => 'cities/things#free'
   end
 
   resources :events, controller: 'events/events', only: [:new, :create] do

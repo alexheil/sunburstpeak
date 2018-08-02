@@ -64,7 +64,30 @@
     <div class="padding-vertical">
       <div class="flex">
         <div class="two-column">
-          description
+          <div class="padding-bottom">
+            <div class="uppercase letter-spacing">
+              Description
+            </div>
+              <%= @thing.description %>
+          </div>
+          <div class="padding-bottom">
+            <div class="uppercase letter-spacing">
+              What to wear
+            </div>
+              <%= @thing.what_to_wear %>
+          </div>
+          <div class="padding-bottom">
+            <div class="uppercase letter-spacing">
+              What to bring
+            </div>
+              <%= @thing.what_to_bring %>
+          </div>
+          <div class="padding-bottom">
+            <div class="uppercase letter-spacing">
+              Where to park
+            </div>
+              <%= @thing.where_to_park %>
+          </div>
         </div>
         <div class="two-column">
           <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@thing.latitude},#{@thing.longitude}&markers=#{@thing.latitude},#{@thing.longitude}&zoom=15&size=640x400&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8" %>

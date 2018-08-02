@@ -44,11 +44,11 @@
 
     <div class="padding-vertical">
       <div class="padding-bottom title">
-        Things to do in <%= @city.city %> | <%= link_to "Free?", free_city_thing_path(@city) %>
+        <%= link_to "Things to do in #{@city.city}", city_things_path(@city) %> | <%= link_to "Free?", city_free_path(@city) %>
       </div>
 
-      <div class="padding-bottom">
-        <% @things.each do |thing| %>
+      <% @things.each do |thing| %>
+        <div class="padding-bottom">
           <div class="flex padding-horizontal border-sides">
             <div class="twenty-two">
               <%= link_to(city_thing_path(@city, thing)) do %>
@@ -69,12 +69,12 @@
                 <%= thing.description %>
               </div>
             </div>
-            <div class="twenty-two center center-height title-lower">
-              Free
+            <div class="twenty-two uppercase center center-height title-lower">
+              <%= thing.thing_type %>
             </div>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
 
     </div>
 

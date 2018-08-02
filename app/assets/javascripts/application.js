@@ -27,3 +27,32 @@ var getFilename = function() {
 
 $(document).ready(getFilename);
 $(document).on('turbolinks:load', getFilename);
+
+
+var getFilename = function() {
+
+  if ($('#is-paid-click').prop('checked')) {
+    $('#free-tab').addClass("unchecked-tab");
+    $('#free-tab').removeClass("checked-tab");
+    $('#paid-tab').addClass("checked-tab");
+    $('#paid-tab').removeClass("unchecked-tab");
+  };
+
+  $('#free-tab').click(function() {
+    $('#free-tab').removeClass("unchecked-tab");
+    $('#free-tab').addClass("checked-tab");
+    $('#paid-tab').removeClass("checked-tab");
+    $('#paid-tab').addClass("unchecked-tab");
+  });
+
+  $('#paid-tab').click(function() {
+    $('#free-tab').addClass("unchecked-tab");
+    $('#free-tab').removeClass("checked-tab");
+    $('#paid-tab').addClass("checked-tab");
+    $('#paid-tab').removeClass("unchecked-tab");
+  });
+
+};
+
+$(document).ready(getFilename);
+$(document).on('turbolinks:load', getFilename);
