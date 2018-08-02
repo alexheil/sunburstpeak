@@ -4,6 +4,8 @@ class Event < ApplicationRecord
 
   include ImageUploader[:image]
 
+  enum event_type: [:public, :private]
+
   geocoded_by :address, :latitude => :latitude, :longitude => :longitude
   after_validation :geocode
 

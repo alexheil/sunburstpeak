@@ -2,6 +2,8 @@ class Thing < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
 
+  enum thing_type: [:free, :paid]
+
   geocoded_by :address, :latitude => :latitude, :longitude => :longitude
   after_validation :geocode
 

@@ -54,6 +54,14 @@
             <%= f.text_area :where_to_park, class: "text-area" %>
           </div>
 
+          <div class="field flex">
+            <label class="checked-tab" id="free-tab" for="is-free-click">Free</label>
+            <%= f.radio_button(:thing_type, "free", id: "is-free-click", checked: true) %>
+
+            <label class="unchecked-tab" id="paid-tab" for="is-paid-click">Paid</label>
+            <%= f.radio_button(:thing_type, "paid", id: "is-paid-click") %>
+          </div>
+
           <%= f.submit "Create thing", data: { disable_with: 'Creating...' }, class: "submit-button" %>
         <% end %>
       </div>
