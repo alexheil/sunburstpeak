@@ -9,6 +9,7 @@ class Event < ApplicationRecord
   geocoded_by :address, :latitude => :latitude, :longitude => :longitude
   after_validation :geocode
 
+  belongs_to :user
   belongs_to :city
 
   has_many :rsvps, dependent: :destroy

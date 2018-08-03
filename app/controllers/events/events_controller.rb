@@ -26,6 +26,7 @@ class Events::EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @city = City.friendly.find(@event.city_id)
+    @event.user_id = current_user.id
     if @event.save
       flash[:notice] = "You just created " + @event.title + "!"
       redirect_to city_event_path(@city, @event)
