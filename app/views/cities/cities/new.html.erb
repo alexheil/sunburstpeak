@@ -1,4 +1,4 @@
-<%= provide(:title, "Create A Thing") %>
+<%= provide(:title, "Create A City") %>
 
 <div class="wrapper">
   <div class="container">
@@ -6,7 +6,7 @@
 
 
       <div class="title">
-        Create a thing
+        Create a city
       </div>
 
       <div class="padding-top">
@@ -30,16 +30,6 @@
           <div class="field">
             <%= f.label :image %>
             <%= f.text_field :image, class: "text-field" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :incorporated %>
-            <%= f.text_field :incorporated, class: "text-field" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :population %>
-            <%= f.text_field :population, class: "text-field" %>
           </div>
 
           <%= f.submit "Create city", data: { disable_with: 'Creating...' }, class: "submit-button" %>

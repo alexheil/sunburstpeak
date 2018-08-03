@@ -24,12 +24,24 @@ class Cities::CitiesController < ApplicationController
   end
 
   def edit
+    @city = City.friendly.find(params[:id])
   end
 
   def update
+    @city = City.friendly.find(params[:id])
+    if @city.update_attributes(city_params)
+      flash[:notice] = "Good job!"
+      redirect_to city_path(@city)
+    else
+      flash.now[:alert] = 'Bad job!'
+      render 'edit'
+    end
   end
 
   def destroy
+    @city = City.friendly.find(params[:id]).destroy
+    redirect_to root_url
+    flash[:notice] = "Delete successful."
   end
 
   def day

@@ -1,0 +1,106 @@
+<%= provide(:title, "Edit " + sanitize(@event.title)) %>
+
+<div class="wrapper">
+  <div class="container">
+    <div class="form-container padding-vertical">
+
+
+      <div class="title">
+        Edit <%= @event.title %>
+      </div>
+
+      <div class="padding-top">
+        <%= form_for(@event, url: city_event_path) do |f| %>
+          <%= render 'partials/errors/event_errors' %>
+
+          
+
+          <div class="field">
+            <div class="flex">
+              <div class="field-three-column">
+                <%= f.label :start_hour %>
+                <%= f.select :start_hour, options_for_select(hour_select)%>
+              </div>
+              <div class="field-three-column">
+                <%= f.label :start_minute %>
+                <%= f.select :start_minute, options_for_select(minute_select)%>
+              </div>
+              <div class="field-three-column">
+                <%= f.label :start_am_pm %>
+                <%= f.select :start_am_pm, options_for_select(minute_select)%>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="flex">
+              <div class="field-three-column">
+                <%= f.label :end_hour %>
+                <%= f.select :end_hour, options_for_select(hour_select)%>
+              </div>
+              <div class="field-three-column">
+                <%= f.label :end_minute %>
+                <%= f.select :end_minute, options_for_select(minute_select)%>
+              </div>
+              <div class="field-three-column">
+                <%= f.label :end_am_pm %>
+                <%= f.select :end_am_pm, options_for_select(minute_select)%>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <%= f.label :title %>
+            <%= f.text_field :title, class: "text-field" %>
+          </div>
+
+          <div class="field">
+            <label class="submit-button" for="event-image">Upload an event thumbnail</label>
+            <%= f.hidden_field :image, value: @event.cached_image_data %>
+            <span class="hidden"><%= f.file_field :image, id: "event-image" %></span>
+            <div class="file-name"></div>
+          </div>
+
+          <div class="field">
+            <%= f.label :venue %>
+            <%= f.text_field :venue, class: "text-field" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :address %>
+            <%= f.text_field :address, class: "text-field" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :description %>
+            <%= f.text_area :description, class: "text-area" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :what_to_bring %>
+            <%= f.text_area :what_to_bring, class: "text-area" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :what_to_wear %>
+            <%= f.text_area :what_to_wear, class: "text-area" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :where_to_park %>
+            <%= f.text_area :where_to_park, class: "text-area" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :city_id %>
+            <%= f.hidden_field :city_id %>
+            <%= f.collection_select(:city_id, City.all, :id, :title) %>
+          </div>
+
+          <%= f.submit "Edit event", data: { disable_with: 'Updating...' }, class: "submit-button" %>
+        <% end %>
+      </div>
+
+
+    </div>
+  </div>
+</div>

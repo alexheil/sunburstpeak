@@ -36,9 +36,20 @@ class Events::EventsController < ApplicationController
   end
 
   def edit
+    @city = City.friendly.find(params[:city_id])
+    @event = Event.friendly.find(params[:id])
   end
 
   def update
+    @city = City.friendly.find(params[:city_id])
+    @event = Event.friendly.find(params[:id])
+    if @event.update_attributes(event_params)
+      flash[:notice] = "Good job!"
+      redirect_to city_event_path(@city, @event)
+    else
+      flash.now[:alert] = 'Bad job!'
+      render 'edit'
+    end
   end
 
   def destroy

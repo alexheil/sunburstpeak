@@ -35,12 +35,27 @@ class Cities::ThingsController < ApplicationController
   end
 
   def edit
+    @city = City.friendly.find(params[:city_id])
+    @thing = Thing.friendly.find(params[:id])
   end
 
   def update
+    @city = City.friendly.find(params[:city_id])
+    @thing = Thing.friendly.find(params[:id])
+    if @thing.update_attributes(thing_params)
+      flash[:notice] = "Good job!"
+      redirect_to city_thing_path(@city, @thing)
+    else
+      flash.now[:alert] = 'Bad job!'
+      render 'edit'
+    end
   end
 
   def destroy
+    @city = City.friendly.find(params[:city_id])
+    @thing = Thing.friendly.find(params[:id]).destroy
+    redirect_to root_url
+    flash[:notice] = "Delete successful."
   end
 
   private

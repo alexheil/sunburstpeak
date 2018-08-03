@@ -11,6 +11,11 @@
 
       <div class="flex">
         <div class="two-column">
+          <%= link_to(edit_city_event_path(@city, @event)) do %>
+            <div class="margin-bottom-mini submit-button">
+              Edit
+            </div>
+          <% end %>
           <img class="profile-image" src="<%= @event.image_url(:original) %>">
         </div>
 

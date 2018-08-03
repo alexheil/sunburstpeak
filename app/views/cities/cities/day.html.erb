@@ -1,8 +1,46 @@
-<%= calendar number_of_days: 1, events: @events do |date, events| %>
-  <%= date %>
-  <% events.each do |event| %>
-    <div>
-      <%= event.title %>
+<div class="wrapper">
+  <div class="container">
+    <div class="padding-vertical">
+
+      <div class="title">
+        <%= @city.title %>
+      </div>
+
+      <%= calendar number_of_days: 1, events: @events do |date, events| %>
+        <% events.each do |event| %>
+
+
+        <div class="padding-bottom">
+          <div class="flex padding-horizontal border-sides">
+            <div class="twenty-two">
+              <%= link_to(city_event_path(@city, event)) do %>
+                <img class="thumbnail-image" srcset="<%= event.image_url(:thumb) %>" width="100%" height="auto" />
+              <% end %>
+            </div>
+            <div class="fifty">
+              <div class="post-title padding-bottom-mini">
+                <%= link_to event.title, city_event_path(event.city, event) %>
+              </div>
+              <div class="bold">
+                <%= event.start_hour %>:<%= event.start_minute %> - <%= event.end_hour %>:<%= event.end_minute %>
+              </div>
+              <div class="bold padding-bottom-mini">
+                <%= event.venue %>, <%= event.city.title %>
+              </div>
+              <div class="padding-bottom-mini">
+                <%= event.description %>
+              </div>
+            </div>
+            <div class="twenty-two center center-height title-lower">
+              <%= pluralize(event.rsvps.count, "RSVP") %>
+            </div>
+          </div>
+        </div>
+
+
+        <% end %>
+      <% end %>
+
     </div>
-  <% end %>
-<% end %>
+  </div>
+</div>
