@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 20180801030931) do
     t.string   "end_hour"
     t.string   "start_minute"
     t.string   "end_minute"
+    t.string   "start_am_pm"
+    t.string   "end_am_pm"
     t.string   "month"
     t.string   "day"
     t.string   "year"
