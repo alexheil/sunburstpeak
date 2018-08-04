@@ -17,7 +17,21 @@
         <div class="two-column">
 
           <div class="two-column">
-            hey
+            <% if user_signed_in? && current_user.liked?(@thing) %>
+              <div class="padding-bottom-mini">
+                <%= link_to "Delete RSVP", city_event_like_path(@city, @thing, current_user.like_id(@thing)), method: :delete, class: "submit-button" %>
+              </div>
+            <% elsif user_signed_in? %>
+              <div class="padding-bottom-mini">
+                <%= link_to "Like", city_event_likes_path(@city, @thing), :method => :post, class: "submit-button" %>
+              </div>
+            <% else %>
+              <%= link_to(sign_in_path) do %>
+                <div class="submit-button margin-bottom-mini">
+                  RSVP
+                </div>
+              <% end %>
+            <% end %>
           </div>
           <div class="sixteen">
             <div class="padding-bottom-mini facebook-button">

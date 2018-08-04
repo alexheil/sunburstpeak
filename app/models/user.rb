@@ -43,6 +43,18 @@ class User < ApplicationRecord
     Rsvp.find_by(user_id: id, event_id: event.id).id
   end
 
+  def liked?(thing)
+    Like.exists? user_id: id, thing_id: thing.id
+  end
+
+  def unlike(thing)
+    Like.find_by(user_id: id, thing_id: thing.id).destroy
+  end
+
+  def like_id(thing)
+    Like.find_by(user_id: id, thing_id: thing.id).id
+  end
+
   private
 
     def should_generate_new_friendly_id?

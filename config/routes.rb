@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   
   root "static_pages#home"
+  get 'privacy' => 'static_pages#privacy'
+  get 'terms' => 'static_pages#terms'
+  get 'about' => 'static_pages#about'
+  get 'faq' => 'static_pages#faq'
+  get 'updates' => 'static_pages#updates'
 
   devise_for :users, controllers: { sessions: "users/sessions", passwords: "users/passwords", registrations: "users/registrations", confirmations: "users/confirmations",  unlocks: "users/unlocks"}
 
@@ -27,7 +32,9 @@ Rails.application.routes.draw do
     resources :events, controller: 'events/events', except: [:index, :new, :create] do
       resources :rsvps, controller: 'users/rsvps', only: [:create, :destroy]
     end
-    resources :things, controller: 'cities/things', path: 'things-to-do'
+    resources :things, controller: 'cities/things', path: 'things-to-do' do
+      resources :likes, controller: 'users/likes', only: [:create, :destroy]
+    end
     get 'free' => 'cities/things#free', path: 'free-things-to-do'
   end
 
@@ -38,5 +45,7 @@ Rails.application.routes.draw do
       get 'new_no_date'
     end
   end
+
+  resources :posts
   
 end

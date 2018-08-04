@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180801030931) do
+ActiveRecord::Schema.define(version: 20180804194353) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "title"
@@ -59,6 +59,25 @@ ActiveRecord::Schema.define(version: 20180801030931) do
     t.datetime "updated_at",                null: false
     t.index ["city_id"], name: "index_events_on_city_id"
     t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_likes_on_event_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.string   "image"
+    t.string   "description"
+    t.text     "content"
+    t.string   "slug"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "rsvps", force: :cascade do |t|

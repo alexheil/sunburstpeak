@@ -9,6 +9,8 @@ class Thing < ApplicationRecord
 
   belongs_to :city
 
+  has_many :likes, dependent: :destroy
+
   before_save :should_generate_new_friendly_id?, if: :title_changed?
 
   private
