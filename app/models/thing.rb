@@ -4,6 +4,8 @@ class Thing < ApplicationRecord
 
   enum thing_type: [:free, :paid]
 
+  scope :popular, -> {select("things.id, things.slug, things.image, things.title, things.thing_type, things.description, things.venue, count(likes.id) likes_count").joins(:likes).group("things.id").reorder("likes_count desc")}
+
   geocoded_by :address, :latitude => :latitude, :longitude => :longitude
   after_validation :geocode
 

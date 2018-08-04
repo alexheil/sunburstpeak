@@ -1,4 +1,4 @@
-class Users::likesController < ApplicationController
+class Users::LikesController < ApplicationController
 
   def create
     @user = current_user

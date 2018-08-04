@@ -1,0 +1,42 @@
+<%= provide(:title, "Edit A Post") %>
+
+<div class="wrapper">
+  <div class="container">
+    <div class="form-container padding-vertical">
+
+
+      <div class="title">
+        Edit <%= @post.title %>
+      </div>
+
+      <div class="padding-top">
+        <%= form_for(@post, url: post_path) do |f| %>
+
+          <div class="field">
+            <%= f.label :title %>
+            <%= f.text_field :title, class: "text-field" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :image %>
+            <%= f.text_field :image, class: "text-field" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :description %>
+            <%= f.text_field :description, class: "text-field" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :content %>
+            <%= f.text_area :content, class: "text-area" %>
+          </div>
+
+          <%= f.submit "Edit city", data: { disable_with: 'Updating...' }, class: "submit-button" %>
+        <% end %>
+      </div>
+
+
+    </div>
+  </div>
+</div>

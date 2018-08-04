@@ -59,18 +59,18 @@
               <div class="post-title padding-bottom-mini">
                 <%= link_to thing.title, city_thing_path(@city, thing) %>
               </div>
-              <div class="bold">
-                <%= @city.city %>:<%= @city.city %> - <%= @city.city %>:<%= @city.city %>
+              <div class="bold uppercase">
+                <%= thing.thing_type %>
               </div>
               <div class="bold padding-bottom-mini">
-                <%= @city.title %>, <%= @city.title %>
+                <%= thing.venue %>
               </div>
               <div class="padding-bottom-mini">
                 <%= thing.description %>
               </div>
             </div>
             <div class="twenty-two uppercase center center-height title-lower">
-              <%= thing.thing_type %>
+              <%= pluralize(thing.likes.count, "Like") %>
             </div>
           </div>
         </div>

@@ -4,12 +4,12 @@ class Cities::ThingsController < ApplicationController
 
   def free
     @city = City.friendly.find(params[:city_id])
-    @things = @city.things
+    @things = @city.things.where(:thing_type => :free).popular
   end
 
   def index
     @city = City.friendly.find(params[:city_id])
-    @things = @city.things
+    @things = @city.things.popular
   end
 
   def show

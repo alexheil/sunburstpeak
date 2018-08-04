@@ -103,6 +103,7 @@ a {
   @include transition;
   color: $black;
   font-weight: 300;
+  line-height: 1.25em;
   letter-spacing: $letterspacer;
   text-transform: uppercase;
   font-size: $large;
@@ -430,8 +431,8 @@ a {
 }
 
 .center-height {
-    line-height: 18vh;
-    height: 18vh;
+  line-height: 18vh;
+  height: 18vh;
 }
 
 .fifty {
@@ -498,6 +499,12 @@ a {
   }
 }
 
+.post-content {
+  word-break: break-word;
+  white-space: pre-line;
+  margin-top: -3vh;
+}
+
 /* ****************** FORMS ****************** */
 
 @mixin buttons {
@@ -562,6 +569,12 @@ input, textarea {
   padding: 1vh 1vw;
   background: $grey;
   display: block;
+}
+
+.hi {
+  select {
+    background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right transparent;
+  }
 }
 
 select {
@@ -685,6 +698,13 @@ select {
 .sixteen {
   margin: 0;
   width: 16%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.thirty-two {
+  margin: 0;
+  width: 32%;
   display: inline-block;
   vertical-align: top;
 }

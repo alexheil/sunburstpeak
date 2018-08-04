@@ -19,16 +19,16 @@
           <div class="two-column">
             <% if user_signed_in? && current_user.liked?(@thing) %>
               <div class="padding-bottom-mini">
-                <%= link_to "Delete RSVP", city_event_like_path(@city, @thing, current_user.like_id(@thing)), method: :delete, class: "submit-button" %>
+                <%= link_to "Unlike", city_thing_like_path(@city, @thing, current_user.like_id(@thing)), method: :delete, class: "submit-button" %>
               </div>
             <% elsif user_signed_in? %>
               <div class="padding-bottom-mini">
-                <%= link_to "Like", city_event_likes_path(@city, @thing), :method => :post, class: "submit-button" %>
+                <%= link_to "Like", city_thing_likes_path(@city, @thing), :method => :post, class: "submit-button" %>
               </div>
             <% else %>
               <%= link_to(sign_in_path) do %>
                 <div class="submit-button margin-bottom-mini">
-                  RSVP
+                  Like
                 </div>
               <% end %>
             <% end %>
@@ -49,6 +49,9 @@
             </div>
           </div>
 
+          <div class="padding-bottom-mini">
+            <span class="bold">Likes:</span> <%= @thing.likes.count %>
+          </div>
           <div class="padding-bottom-mini">
             <span class="bold">City:</span> <%= link_to @thing.city.city, city_path(@city) %>
           </div>

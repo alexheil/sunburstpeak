@@ -1,0 +1,44 @@
+<%= provide(:title, "Things to do in " + sanitize(@city.title)) %>
+
+<div class="wrapper">
+  <div class="container">
+    <div class="padding-vertical">
+
+      <div class="title">
+        Things to do in <%= link_to @city.title, city_path(@city) %>
+      </div>
+
+    <div class="padding-top">
+      <% @things.each do |thing| %>
+        <div class="padding-bottom">
+          <div class="flex padding-horizontal border-sides">
+            <div class="twenty-two">
+              <%= link_to(city_thing_path(@city, thing)) do %>
+                <img class="thumbnail-image" srcset="<%= thing.image %>" width="100%" height="auto" />
+              <% end %>
+            </div>
+            <div class="fifty">
+              <div class="post-title padding-bottom-mini">
+                <%= link_to thing.title, city_thing_path(@city, thing) %>
+              </div>
+              <div class="bold uppercase">
+                <%= thing.thing_type %>
+              </div>
+              <div class="bold padding-bottom-mini">
+                <%= thing.venue %>
+              </div>
+              <div class="padding-bottom-mini">
+                <%= thing.description %>
+              </div>
+            </div>
+            <div class="twenty-two uppercase center center-height title-lower">
+              <%= pluralize(thing.likes.count, "Like") %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    </div>
+  </div>
+</div>

@@ -46,6 +46,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :posts
+  resources :posts, controller: 'posts/posts'
   
 end

@@ -5,7 +5,7 @@ class Cities::CitiesController < ApplicationController
   def show
     @city = City.friendly.find(params[:id])
     @events = @city.events
-    @things = @city.things
+    @things = @city.things.popular.limit(10)
   end
 
   def new

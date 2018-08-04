@@ -1,0 +1,49 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="padding-vertical">
+
+      <div class="mid-container">
+        <div class="title padding-bottom">
+          <%= @post.title %>
+        </div>
+
+        <div class="padding-bottom border-bottom">
+          <img class="thumbnail-image" srcset="<%= @post.image %>" width="100%" height="auto" />
+        </div>
+
+        <div class="padding-bottom-mini padding-top-mini border-bottom">
+          <div class="black-box">
+            hey
+          </div>
+        </div>
+      </div>
+
+      <div class="form-container">
+        <div class="padding-vertical border-bottom">
+          <div class="post-content">
+            <%= @post.content %>
+          </div>
+        </div>
+
+        <div class="flex padding-top-mini padding-bottom-mini border-bottom">
+          <div class="thirty-two">
+            <div class="padding-bottom-mini facebook-button">
+              F
+            </div>
+          </div>
+          <div class="thirty-two">
+            <div class="padding-bottom-mini twitter-button">
+              T
+            </div>
+          </div>
+          <div class="thirty-two">
+            <div class="padding-bottom-mini reddit-button">
+              R
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

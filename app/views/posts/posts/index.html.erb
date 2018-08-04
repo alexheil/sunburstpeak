@@ -1,0 +1,37 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="padding-vertical">
+
+      <div class="title padding-bottom">
+        Blog
+      </div>
+
+      <% @posts.each do |post| %>
+
+        <div class="padding-bottom">
+          <div class="flex padding-horizontal border-sides">
+            <div class="twenty-two">
+              <%= link_to(post_path(post)) do %>
+                <img class="thumbnail-image" srcset="<%= post.image %>" width="100%" height="auto" />
+              <% end %>
+            </div>
+            <div class="fifty">
+              <div class="post-title padding-bottom-mini">
+                <%= link_to post.title, post_path(post) %>
+              </div>
+              <div class="padding-bottom-mini">
+                <%= post.description %>
+              </div>
+            </div>
+            <div class="twenty-two center center-height title-lower">
+              1:30
+            </div>
+          </div>
+        </div>
+
+
+      <% end %>
+
+    </div>
+  </div>
+</div>
