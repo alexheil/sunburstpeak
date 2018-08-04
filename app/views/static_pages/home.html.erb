@@ -1,1 +1,15 @@
 <div class="background"></div>
+
+<%= select_tag 'team_id', options_from_collection_for_select(@cities, "id", "title") %>
+
+<script>
+    $(function(){
+      $('#city_id').bind('change', function () {
+         var url = "/cities/" + $(this).val()
+          if (url) {
+              window.location.replace(url);
+          }
+          return false;
+      });
+    });
+</script>
