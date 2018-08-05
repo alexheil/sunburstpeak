@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   resources :users, controller: 'users/users', only: :show do
     member do
       get 'day'
-      get 'week'
       get 'month'
     end
   end
@@ -26,7 +25,6 @@ Rails.application.routes.draw do
   resources :cities, controller: 'cities/cities', except: :index do
     member do
       get 'day'
-      get 'week'
       get 'month'
     end
     resources :events, controller: 'events/events', except: [:index, :new, :create] do
@@ -38,14 +36,7 @@ Rails.application.routes.draw do
     get 'free' => 'cities/things#free', path: 'free-things-to-do'
   end
 
-  resources :events, controller: 'events/events', only: [:new, :create] do
-    member do
-      get 'new_date_and_city'
-      get 'new_no_city'
-      get 'new_no_date'
-    end
-  end
-
+  resources :events, controller: 'events/events', only: [:new, :create]
   resources :posts, controller: 'posts/posts'
   
 end

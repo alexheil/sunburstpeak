@@ -6,14 +6,15 @@
         <th><%= t('date.day_names')[day.wday] %></th>
       <% end %>
       <%= start_date.day %>
-      <%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
-       | <%= link_to t('simple_calendar.next', default: '>'), calendar.url_for_next_view %>
-    <% if @user %>
-      <%= link_to "+", new_event_path(start_time: start_date, end_time: start_date) %>
-    <% end %>
-    <% if @city %>
-      <%= link_to "+", new_event_path(start_time: start_date, end_time: start_date, city_id: @city.id) %>
-    <% end %>
+      
+      <% if @user %>
+        <th><%= link_to t('date.month_names')[start_date.month] + " #{start_date.year}", user_path(@user) + "?start_date=#{start_date.year}-#{start_date.month}-#{start_date.day}" %></th>
+      <% elsif @city %>
+        <th><%= link_to t('date.month_names')[start_date.month] + " #{start_date.year}", city_path(@city) + "?start_date=#{start_date.year}-#{start_date.month}-#{start_date.day}" %></th>
+      <% end %>
+
+    </span>
+     | <%= link_to t('simple_calendar.next', default: '>'), calendar.url_for_next_view %>
   </div>
 
   <table class="table table-striped">
