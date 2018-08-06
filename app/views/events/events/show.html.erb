@@ -10,13 +10,27 @@
 
       <div class="flex">
         <div class="two-column">
+
           <% if user_signed_in? && @event.user_id == current_user.id %>
-            <%= link_to(edit_city_event_path(@city, @event)) do %>
-              <div class="margin-bottom-mini submit-button">
-                Edit
+            <div class="flex">
+              <div class="two-column">
+                <%= link_to(edit_city_event_path(@city, @event)) do %>
+                  <div class="margin-bottom-mini submit-button">
+                    Edit
+                  </div>
+                <% end %>
               </div>
-            <% end %>
+              <div class="two-column">
+                <%= link_to(city_event_path(@city, @event), data: { confirm: "Are you sure? This cannot be undone. Ever..." }, method: :delete) do %>
+                  <div class="margin-bottom-mini delete-button">
+                    Delete
+                  </div>
+                <% end %>
+                <span class="hard-text"></span>
+              </div>
+            </div>
           <% end %>
+
           <img class="profile-image" src="<%= @event.image_url(:original) %>">
         </div>
 

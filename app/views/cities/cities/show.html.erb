@@ -9,7 +9,7 @@
         <%= @city.title %>
       </div>
 
-      <%= if user_signed_in? && current_user == @owner %>
+      <% if user_signed_in? && current_user == @owner %>
         <div class="flex">
           <div class="two-column">
             <%= link_to(edit_city_path(@city)) do %>
@@ -20,7 +20,7 @@
           </div>
           <div class="two-column">
             <%= link_to(city_path(@city), data: { confirm: "Are you sure? This cannot be undone. Ever..." }, method: :delete) do %>
-              <div class="margin-bottom-mini submit-button">
+              <div class="margin-bottom-mini delete-button">
                 Delete
               </div>
             <% end %>

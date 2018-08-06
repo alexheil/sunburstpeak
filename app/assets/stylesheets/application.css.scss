@@ -543,6 +543,15 @@ a {
   @include buttons;
 }
 
+.delete-button {
+  @include buttons;
+  border: 2px solid $dark;
+  color: $dark;
+  &:hover {
+    background: $dark;
+  }
+}
+
 textarea:focus, input:focus, select {
   outline: none;
 }

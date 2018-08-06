@@ -54,6 +54,10 @@ class Events::EventsController < ApplicationController
   end
 
   def destroy
+    @city = City.friendly.find(params[:city_id])
+    @event = Event.friendly.find(params[:id]).destroy
+    redirect_to root_url
+    flash[:notice] = "Delete successful."
   end
 
   private

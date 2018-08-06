@@ -15,6 +15,7 @@ class Cities::ThingsController < ApplicationController
   def show
     @city = City.friendly.find(params[:city_id])
     @thing = Thing.friendly.find(params[:id])
+    @owner = User.friendly.find(3)
   end
 
   def new

@@ -1,12 +1,12 @@
 class Cities::CitiesController < ApplicationController
 
   before_action :set_user
-  before_action :set_owner, only: :show
 
   def show
     @city = City.friendly.find(params[:id])
     @events = @city.events
     @things = @city.things.popular.limit(10)
+    @owner = User.friendly.find(1)
   end
 
   def new
@@ -54,10 +54,6 @@ class Cities::CitiesController < ApplicationController
 
     def set_user
       @user = current_user
-    end
-
-    def set_owner
-      @owner = User.friendly.find(1)
     end
 
     def city_params
