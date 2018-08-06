@@ -49,16 +49,6 @@ class Cities::CitiesController < ApplicationController
     @events = Event.all
   end
 
-  def week
-    @city = City.friendly.find(params[:id])
-    @events = Event.all
-  end
-
-  def month
-    @city = City.friendly.find(params[:id])
-    @events = Event.all
-  end
-
   private
 
     def set_user

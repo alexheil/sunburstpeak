@@ -10,11 +10,24 @@
       </div>
 
       <div class="flex">
-        <div class="">
-          <img class="profile-image" src="<%= @city.image %>">
+        <div class="two-column">
+          <%= link_to(edit_city_path(@city)) do %>
+            <div class="margin-bottom-mini submit-button">
+              Edit
+            </div>
+          <% end %>
+        </div>
+        <div class="two-column">
+          <%= link_to(city_path(@city), data: { confirm: "Are you sure? This cannot be undone. Ever..." }, method: :delete) do %>
+            <div class="margin-bottom-mini submit-button">
+              Delete
+            </div>
+          <% end %>
+          <span class="hard-text"></span>
         </div>
       </div>
 
+      <img class="profile-image" src="<%= @city.image %>">
     </div>
 
     <%= render 'partials/ad_trash' %>

@@ -1,9 +1,36 @@
 <div class="background"></div>
 
 <div class="wrapper">
-  <div class="container hi">
+  <div class="container">
     
-    <%= select_tag 'city_id', options_from_collection_for_select(@cities, "slug", "title") %>
+
+    <div class="home-center-height">
+      <div class="padding-bottom-mini post-title center">
+        Every event. Everywhere.
+      </div>
+      <div class="flex title">
+        <div class="two-column right">
+          What's going on in...
+        </div>
+        <div class="two-column home-container">
+          <%= select_tag 'city_id', options_from_collection_for_select(@cities, "slug", "title") %>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
 
     <script>
         $(function(){
@@ -16,6 +43,3 @@
           });
         });
     </script>
-  
-  </div>
-</div>

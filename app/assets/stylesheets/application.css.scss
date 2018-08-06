@@ -426,6 +426,10 @@ a {
   border-top: 1px solid $border;
 }
 
+.right {
+  text-align: right;
+}
+
 .center {
   text-align: center;
 }
@@ -433,6 +437,11 @@ a {
 .center-height {
   line-height: 18vh;
   height: 18vh;
+}
+
+.home-center-height {
+  padding-top: 30vh;
+  padding-bottom: 15vh;
 }
 
 .fifty {
@@ -534,7 +543,7 @@ a {
   @include buttons;
 }
 
-textarea:focus, input:focus {
+textarea:focus, input:focus, select {
   outline: none;
 }
 
@@ -571,9 +580,13 @@ input, textarea {
   display: block;
 }
 
-.hi {
+.home-container {
   select {
-    background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right transparent;
+    text-transform: uppercase;
+    font-weight: 100;
+    background: transparent;
+    line-height: 3vh;
+    height: 3vh;
   }
 }
 
