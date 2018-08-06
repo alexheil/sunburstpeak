@@ -3,7 +3,7 @@
 <div class="wrapper">
   <div class="container hi">
     
-    <%= select_tag 'city_id', options_from_collection_for_select(@cities, "id", "title") %>
+    <%= select_tag 'city_id', options_from_collection_for_select(@cities, "slug", "title") %>
 
     <script>
         $(function(){
