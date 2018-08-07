@@ -1,5 +1,7 @@
 class Events::EventsController < ApplicationController
 
+  before_action :authenticate_user!, except: :show
+  before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :set_user
 
   def show
@@ -61,6 +63,16 @@ class Events::EventsController < ApplicationController
   end
 
   private
+
+    def correct_user
+      @city = City.friendly.find(params[:city_id])
+      @event = Event.friendly.find(params[:id])
+      @user = current_user
+      @owner = User.friendly.find(@event.user_id)
+      unless @user == @owner
+        redirect_to root_url
+      end
+    end
 
     def set_user
       @user = current_user

@@ -1,11 +1,15 @@
 class Posts::PostsController < ApplicationController
 
+  before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_owner, except: [:show, :index]
+
   def index
     @posts = Post.all
   end
 
   def show
     @post = Post.friendly.find(params[:id])
+    @owner = User.friendly.find(1)
   end
 
   def new
@@ -45,6 +49,14 @@ class Posts::PostsController < ApplicationController
   end
 
   private
+
+    def authenticate_owner
+      @user = current_user
+      @owner = User.friendly.find(1)
+      unless @user == @owner
+        redirect_to root_url
+      end
+    end
 
     def post_params
       params.require(:post).permit(:title, :image, :description, :content)

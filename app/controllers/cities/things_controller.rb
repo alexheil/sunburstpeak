@@ -1,6 +1,7 @@
 class Cities::ThingsController < ApplicationController
 
-  before_action :set_user
+  before_action :authenticate_user!, except: [:show, :index, :free]
+  before_action :authenticate_owner, except: [:show, :index, :free]
 
   def free
     @city = City.friendly.find(params[:city_id])
@@ -15,7 +16,7 @@ class Cities::ThingsController < ApplicationController
   def show
     @city = City.friendly.find(params[:city_id])
     @thing = Thing.friendly.find(params[:id])
-    @owner = User.friendly.find(3)
+    @owner = User.friendly.find(1)
   end
 
   def new
@@ -61,8 +62,12 @@ class Cities::ThingsController < ApplicationController
 
   private
 
-    def set_user
+    def authenticate_owner
       @user = current_user
+      @owner = User.friendly.find(1)
+      unless @user == @owner
+        redirect_to root_url
+      end
     end
 
     def thing_params

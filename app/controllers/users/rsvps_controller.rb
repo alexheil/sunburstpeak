@@ -1,5 +1,7 @@
 class Users::RsvpsController < ApplicationController
 
+  before_action :authenticate_user!
+  
   def create
     @user = current_user
     @city = City.friendly.find(params[:city_id])

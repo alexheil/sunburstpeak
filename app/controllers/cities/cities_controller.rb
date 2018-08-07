@@ -1,6 +1,7 @@
 class Cities::CitiesController < ApplicationController
 
-  before_action :set_user
+  before_action :authenticate_user!, except: [:show, :day]
+  before_action :authenticate_owner, except: [:show, :day]
 
   def show
     @city = City.friendly.find(params[:id])
@@ -52,8 +53,12 @@ class Cities::CitiesController < ApplicationController
 
   private
 
-    def set_user
+    def authenticate_owner
       @user = current_user
+      @owner = User.friendly.find(1)
+      unless @user == @owner
+        redirect_to root_url
+      end
     end
 
     def city_params

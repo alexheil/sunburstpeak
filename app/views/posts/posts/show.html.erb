@@ -8,6 +8,27 @@
         </div>
 
         <div class="padding-bottom border-bottom">
+
+          <% if user_signed_in? && current_user == @owner %>
+            <div class="flex">
+              <div class="two-column">
+                <%= link_to(edit_post_path(@post)) do %>
+                  <div class="margin-bottom-mini submit-button">
+                    Edit
+                  </div>
+                <% end %>
+              </div>
+              <div class="two-column">
+                <%= link_to(post_path(@post), data: { confirm: "Are you sure? This cannot be undone. Ever..." }, method: :delete) do %>
+                  <div class="margin-bottom-mini delete-button">
+                    Delete
+                  </div>
+                <% end %>
+                <span class="hard-text"></span>
+              </div>
+            </div>
+          <% end %>
+
           <img class="thumbnail-image" srcset="<%= @post.image %>" width="100%" height="auto" />
         </div>
 
