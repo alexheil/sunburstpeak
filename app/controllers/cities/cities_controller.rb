@@ -54,9 +54,8 @@ class Cities::CitiesController < ApplicationController
   private
 
     def authenticate_owner
-      @user = current_user
-      @owner = User.friendly.find(1)
-      unless @user == @owner
+      @user = User.friendly.find(1)
+      unless current_user == @user
         redirect_to root_url
       end
     end

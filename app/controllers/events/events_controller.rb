@@ -67,9 +67,8 @@ class Events::EventsController < ApplicationController
     def correct_user
       @city = City.friendly.find(params[:city_id])
       @event = Event.friendly.find(params[:id])
-      @user = current_user
-      @owner = User.friendly.find(@event.user_id)
-      unless @user == @owner
+      @user = User.friendly.find(@event.user_id)
+      unless current_user == @user
         redirect_to root_url
       end
     end
