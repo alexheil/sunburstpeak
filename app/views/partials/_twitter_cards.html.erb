@@ -1,21 +1,21 @@
 <% if content_for?(:city_og_header) %>
   <%= yield(:city_og_header) %>
-<% elsif content_for?(:event_post_og_header) %>
-  <%= yield(:event_post_og_header) %>
+<% elsif content_for?(:event_og_header) %>
+  <%= yield(:event_og_header) %>
 <% elsif content_for?(:thing_og_header) %>
   <%= yield(:thing_og_header) %>
-<% elsif content_for?(:blog_og_header) %>
-  <%= yield(:blog_og_header) %>
+<% elsif content_for?(:post_og_header) %>
+  <%= yield(:post_og_header) %>
 <% else %>
-  <meta property="og:url" content="http://www.ninthvalley.com" />
-  <meta property="og:title" content="Ninth Valley" />
-  <meta property="og:description" content="Ninth Valley is the place to become a master at your next aquired skill." />
+  <meta property="og:url" content="http://www.sunburstpeak.com" />
+  <meta property="og:title" content="Sunbusrt Peak" />
+  <meta property="og:description" content="Every event. Everywhere." />
   <meta property="og:image" content="https://i.imgur.com/fRcWyIZ.jpg" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Ninth Valley" />
-  <meta name="twitter:description" content="Ninth Valley is the place to become a master at your next aquired skill." />
+  <meta name="twitter:title" content="Sunbusrt Peak" />
+  <meta name="twitter:description" content="Every event. Everywhere." />
   <meta name="twitter:image" content="https://i.imgur.com/fRcWyIZ.jpg" />
-  <meta name="twitter:url" content="http://www.ninthvalley.com" />
-  <meta name="twitter:site" content="@ninthvalley" />
-  <meta name="twitter:creator" content="@ninthvalley" />
+  <meta name="twitter:url" content="http://www.sunburstpeak.com" />
+  <meta name="twitter:site" content="@sunburstpeak" />
+  <meta name="twitter:creator" content="@sunburstpeak" />
 <% end %>
