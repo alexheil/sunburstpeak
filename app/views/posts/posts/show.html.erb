@@ -42,7 +42,7 @@
       <div class="form-container">
         <div class="padding-vertical border-bottom">
           <div class="post-content">
-            <%= @post.content %>
+            <%= sanitize(@post.content) %>
           </div>
         </div>
 
