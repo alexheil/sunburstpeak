@@ -552,6 +552,15 @@ a {
   }
 }
 
+.black-button {
+  @include buttons;
+  border: 2px solid $black;
+  color: $black;
+  &:hover {
+    background: $black;
+  }
+}
+
 textarea:focus, input:focus, select {
   outline: none;
 }
