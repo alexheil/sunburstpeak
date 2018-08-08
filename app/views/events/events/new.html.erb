@@ -69,7 +69,7 @@
           </div>
 
           <div class="field">
-            <label class="submit-button" for="event-image">Upload an event thumbnail</label>
+            <label class="black-button" for="event-image">Upload an event thumbnail</label>
             <%= f.hidden_field :image, value: @event.cached_image_data %>
             <span class="hidden"><%= f.file_field :image, id: "event-image" %></span>
             <div class="file-name"></div>

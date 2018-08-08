@@ -34,7 +34,7 @@ $large: 2em;
 $med: 1.5em;
 $smed: 1.25em; 
 $small: 0.85em;
-$letterspacer: .125em;
+$letterspacer: .05em;
 
 @mixin transition {
   -webkit-transition: .3s;
@@ -105,7 +105,6 @@ a {
   font-weight: 300;
   line-height: 1.25em;
   letter-spacing: $letterspacer;
-  text-transform: uppercase;
   font-size: $large;
 }
 
@@ -123,6 +122,7 @@ a {
   font-weight: 300;
   font-size: $med;
   line-height: 1em;
+  letter-spacing: $letterspacer;
 }
 
 .bold {
@@ -157,7 +157,7 @@ a {
 }
 
 .letter-spacing {
-  letter-spacing: .125em;
+  letter-spacing: $letterspacer;
 }
 
 /* ***************** CALENDAR ******************* */
@@ -173,7 +173,6 @@ a {
   text-align: left;
   font-weight: 300;
   font-size: 1.5em;
-  text-transform: uppercase;
   text-align: center;
 }
 
@@ -208,7 +207,6 @@ a {
   border-radius: $radius;
   font-weight: 300;
   letter-spacing: $letterspacer;
-  text-transform: uppercase;
   font-size: 2em;
   padding: 5vh 0;
 }
@@ -230,7 +228,6 @@ a {
   color: $black;
   font-weight: 300;
   letter-spacing: $letterspacer;
-  text-transform: uppercase;
   font-size: $smed;
 }
 
@@ -600,9 +597,9 @@ input, textarea {
 
 .home-container {
   select {
-    text-transform: uppercase;
     font-weight: 100;
     background: transparent;
+    letter-spacing: $letterspacer;
     line-height: 3vh;
     height: 3vh;
   }
@@ -735,7 +732,7 @@ select {
 
 .thirty-two {
   margin: 0;
-  width: 32%;
+  width: 33%;
   display: inline-block;
   vertical-align: top;
 }

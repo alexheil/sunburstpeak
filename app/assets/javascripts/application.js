@@ -20,7 +20,7 @@ var getFilename = function() {
   $('input[type="file"]').change(function(e){
     var fileName = e.target.files[0].name;
     $('.file-name').text(fileName);
-    $('.file-name').addClass('padding-top');
+    $('.file-name').addClass('padding-top-mini');
   });
 
 };
