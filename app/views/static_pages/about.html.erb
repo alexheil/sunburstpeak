@@ -1,1 +1,69 @@
 <%= provide(:title, "About") %>
+
+<div class="wrapper">
+  <div class="container">
+    <div class="padding-vertical">
+
+      <div class="mid-container">
+        <div class="title padding-bottom">
+          <%= @post.title %>
+        </div>
+
+        <div class="padding-bottom border-bottom">
+
+          <% if user_signed_in? && current_user == @owner %>
+            <div class="flex">
+              <div class="two-column">
+                <%= link_to(edit_post_path(@post)) do %>
+                  <div class="margin-bottom-mini submit-button">
+                    Edit
+                  </div>
+                <% end %>
+              </div>
+              <div class="two-column">
+                <%= link_to(post_path(@post), data: { confirm: "Are you sure? This cannot be undone. Ever..." }, method: :delete) do %>
+                  <div class="margin-bottom-mini delete-button">
+                    Delete
+                  </div>
+                <% end %>
+                <span class="hard-text"></span>
+              </div>
+            </div>
+          <% end %>
+
+          <img class="thumbnail-image" srcset="<%= @post.image %>" width="100%" height="auto" />
+        </div>
+
+        <%= render 'partials/ad_trash' %>
+
+      </div>
+
+      <div class="form-container">
+        <div class="padding-vertical border-bottom">
+          <div class="post-content">
+            <%= @post.content %>
+          </div>
+        </div>
+
+        <div class="flex padding-top-mini padding-bottom-mini border-bottom">
+          <div class="thirty-two">
+            <div class="padding-bottom-mini facebook-button">
+              F
+            </div>
+          </div>
+          <div class="thirty-two">
+            <div class="padding-bottom-mini twitter-button">
+              T
+            </div>
+          </div>
+          <div class="thirty-two">
+            <div class="padding-bottom-mini reddit-button">
+              R
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
