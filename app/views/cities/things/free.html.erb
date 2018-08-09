@@ -13,7 +13,7 @@
       <% @things.each do |thing| %>
         <div class="padding-bottom">
           <div class="flex padding-horizontal border-sides">
-            <div class="twenty-two">
+            <div class="twenty-two-image">
               <%= link_to(city_thing_path(@city, thing)) do %>
                 <img class="thumbnail-image" srcset="<%= thing.image %>" width="100%" height="auto" />
               <% end %>

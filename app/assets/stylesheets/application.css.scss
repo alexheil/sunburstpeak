@@ -390,6 +390,11 @@ a {
   padding-bottom: 5vh;
 }
 
+.padding-vertical-mini {
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}
+
 .padding-vertical-small {
   padding-top: 2vh;
   padding-bottom: 2vh;
@@ -401,6 +406,10 @@ a {
 
 .padding-bottom-mini {
   padding-bottom: 1vh;
+}
+
+.padding-bottom-small {
+  padding-bottom: 2vh;
 }
 
 .padding-top {
@@ -449,6 +458,13 @@ a {
 }
 
 .twenty-two {
+  margin: 0;
+  width: 22%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.twenty-two-image {
   margin: 0;
   width: 22%;
   display: inline-block;
@@ -785,7 +801,92 @@ select {
   }
 
   .form-container {
+    width: 70%;
+  }
+
+  .fifty {
+    margin: 0;
+    width: 77%;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .twenty-two {
+    margin: 0;
+    width: 22%;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .twenty-two-image {
+    margin: 0;
     width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    padding-bottom: 2vh;
+  }
+
+}
+
+
+@media screen and (max-width: 800px) {
+
+  .mid-container {
+    width: 100%;
+  }
+
+  .form-container {
+    width: 100%;
+  }
+
+  .fifty {
+    margin: 0;
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .twenty-two {
+    margin: 0;
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  @mixin mobile-nav {
+    float: none;
+    text-align: center;
+  }
+
+  .nav {
+    display: block;
+    .nav-links {
+      padding: 1vh 1vw;
+    }
+    .site-title {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding-bottom: 2vh;
+    }
+    ul {
+      width: 100%;
+      display: block;
+      li {
+        width: 30%;
+        text-align: center;
+      }
+    }
+  }
+
+  .footer {
+    text-align: center;
+    span {
+      @include mobile-nav;
+    }
+    ul {
+      @include mobile-nav;
+    }
   }
 
 }
