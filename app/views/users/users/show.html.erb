@@ -13,11 +13,23 @@
           <div class="day">
             <%= day %>
           </div>
-          <% if rsvps.any? %>
-            <div class="events">
-              <%= pluralize(rsvps.count, "Event") %>
-            </div>
-          <% end %>
+
+          <div class="no-mobile">
+            <% if rsvps.any? %>
+              <div class="events">
+                <%= pluralize(rsvps.count, "Event") %>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="only-mobile">
+            <% if rsvps.any? %>
+              <div class="events">
+                <%= rsvps.count %>
+              </div>
+            <% end %>
+          </div>
+
         <% end %>  
       <% end %>
 

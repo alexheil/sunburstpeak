@@ -44,11 +44,24 @@
           <div class="day">
             <%= day %>
           </div>
-          <% if events.any? %>
-            <div class="events">
-              <%= pluralize(events.count, "Event") %>
-            </div>
-          <% end %>
+
+
+          <div class="no-mobile">
+            <% if events.any? %>
+              <div class="events">
+                <%= pluralize(events.count, "Event") %>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="only-mobile">
+            <% if events.any? %>
+              <div class="events">
+                <%= events.count %>
+              </div>
+            <% end %>
+          </div>
+
         <% end %>  
       <% end %>
     </div>
@@ -61,7 +74,7 @@
       <% @things.each do |thing| %>
         <div class="padding-bottom">
           <div class="flex padding-horizontal border-sides">
-            <div class="twenty-two">
+            <div class="twenty-two-image">
               <%= link_to(city_thing_path(@city, thing)) do %>
                 <img class="thumbnail-image" srcset="<%= thing.image %>" width="100%" height="auto" />
               <% end %>
@@ -69,6 +82,9 @@
             <div class="fifty">
               <div class="post-title padding-bottom-mini">
                 <%= link_to thing.title, city_thing_path(@city, thing) %>
+              </div>
+              <div class="only-mobile bold">
+                <%= pluralize(thing.likes.count, "Like") %>
               </div>
               <div class="bold uppercase">
                 <%= thing.thing_type %>
@@ -80,7 +96,7 @@
                 <%= thing.description %>
               </div>
             </div>
-            <div class="twenty-two uppercase center center-height title-lower">
+            <div class="no-mobile twenty-two uppercase center center-height title-lower">
               <%= pluralize(thing.likes.count, "Like") %>
             </div>
           </div>
