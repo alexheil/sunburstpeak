@@ -22,6 +22,9 @@
               <div class="post-title padding-bottom-mini">
                 <%= link_to thing.title, city_thing_path(@city, thing) %>
               </div>
+              <div class="only-mobile bold">
+                <%= pluralize(thing.likes.count, "Like") %>
+              </div>
               <div class="bold uppercase">
                 <%= thing.thing_type %>
               </div>
@@ -32,7 +35,7 @@
                 <%= thing.description %>
               </div>
             </div>
-            <div class="twenty-two uppercase center center-height title-lower">
+            <div class="no-mobile twenty-two uppercase center center-height title-lower">
               <%= pluralize(thing.likes.count, "Like") %>
             </div>
           </div>

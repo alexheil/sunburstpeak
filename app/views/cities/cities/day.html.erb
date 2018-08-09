@@ -24,6 +24,9 @@
                 <div class="post-title padding-bottom-mini">
                   <%= link_to event.title, city_event_path(event.city, event) %>
                 </div>
+                <div class="only-mobile bold">
+                  <%= pluralize(rsvp.event.rsvps.count, "RSVP") %>
+                </div>
                 <div class="bold">
                   <%= event.start_hour %>:<%= event.start_minute %> - <%= event.end_hour %>:<%= event.end_minute %>
                 </div>
@@ -34,7 +37,7 @@
                   <%= event.description %>
                 </div>
               </div>
-              <div class="twenty-two center center-height title-lower">
+              <div class="no-mobile twenty-two center center-height title-lower">
                 <%= pluralize(event.rsvps.count, "RSVP") %>
               </div>
             </div>
