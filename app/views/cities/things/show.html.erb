@@ -37,36 +37,36 @@
 
         <div class="two-column">
 
-          <div class="two-column">
-            <% if user_signed_in? && current_user.liked?(@thing) %>
-              <div class="padding-bottom-mini">
-                <%= link_to "Unlike", city_thing_like_path(@city, @thing, current_user.like_id(@thing)), method: :delete, class: "submit-button" %>
+          <% if user_signed_in? && current_user.liked?(@thing) %>
+            <div class="padding-bottom-mini">
+              <%= link_to "Unlike", city_thing_like_path(@city, @thing, current_user.like_id(@thing)), method: :delete, class: "submit-button" %>
+            </div>
+          <% elsif user_signed_in? %>
+            <div class="padding-bottom-mini">
+              <%= link_to "Like", city_thing_likes_path(@city, @thing), :method => :post, class: "submit-button" %>
+            </div>
+          <% else %>
+            <%= link_to(sign_in_path) do %>
+              <div class="submit-button margin-bottom-mini">
+                Like
               </div>
-            <% elsif user_signed_in? %>
-              <div class="padding-bottom-mini">
-                <%= link_to "Like", city_thing_likes_path(@city, @thing), :method => :post, class: "submit-button" %>
-              </div>
-            <% else %>
-              <%= link_to(sign_in_path) do %>
-                <div class="submit-button margin-bottom-mini">
-                  Like
-                </div>
-              <% end %>
             <% end %>
-          </div>
-          <div class="sixteen">
-            <div class="padding-bottom-mini facebook-button">
-              F
+          <% end %>
+          <div class="flex padding-bottom-mini">
+            <div class="thirty-two">
+              <div class="padding-bottom-mini facebook-button">
+                F
+              </div>
             </div>
-          </div>
-          <div class="sixteen">
-            <div class="padding-bottom-mini twitter-button">
-              T
+            <div class="thirty-two">
+              <div class="padding-bottom-mini twitter-button">
+                T
+              </div>
             </div>
-          </div>
-          <div class="sixteen">
-            <div class="padding-bottom-mini reddit-button">
-              R
+            <div class="thirty-two">
+              <div class="padding-bottom-mini reddit-button">
+                R
+              </div>
             </div>
           </div>
 
