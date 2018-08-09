@@ -823,7 +823,7 @@ select {
     width: 100%;
     display: inline-block;
     vertical-align: top;
-    padding-bottom: 2vh;
+    padding-bottom: 1vh;
   }
 
 }
@@ -837,6 +837,19 @@ select {
 
   .form-container {
     width: 100%;
+  }
+
+  .two-column {
+    width: 100%;
+    padding-bottom: 1vh;
+  }
+
+  .sixteen {
+    margin: 0;
+    width: 32%;
+    display: inline-block;
+    vertical-align: top;
+    padding-bottom: 1vh;
   }
 
   .fifty {
