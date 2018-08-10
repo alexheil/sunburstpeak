@@ -18,13 +18,12 @@ ActiveRecord::Schema.define(version: 20180804194353) do
     t.string   "city"
     t.string   "state"
     t.string   "country"
-    t.string   "incorporated"
-    t.string   "population"
+    t.text     "description"
     t.float    "latitude"
     t.float    "longitude"
     t.string   "slug"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "events", force: :cascade do |t|

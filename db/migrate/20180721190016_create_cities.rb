@@ -6,8 +6,7 @@ class CreateCities < ActiveRecord::Migration[5.0]
       t.string :city
       t.string :state
       t.string :country
-      t.string :incorporated
-      t.string :population
+      t.text :description
       t.float :latitude
       t.float :longitude
       t.string :slug
