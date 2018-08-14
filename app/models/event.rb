@@ -17,8 +17,19 @@ class Event < ApplicationRecord
 
   before_save :generated_slug
   before_save :pick_date
+  before_save :time_calculator
 
   private
+
+    def time_calculator
+      if self.start_am_pm == "am" && self.end_am_pm == 'am'
+        self.start_hour < self.end_hour
+      elsif self.start_am_pm == "pm" && self.end_am_pm == 'pm'
+        self.start_hour < self.end_hour
+      elsif self.start_am_pm == "pm"
+        self.end_am_pm == "pm"
+      end
+    end
 
     def generated_slug
       require 'securerandom' 

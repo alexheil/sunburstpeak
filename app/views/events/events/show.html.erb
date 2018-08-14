@@ -86,10 +86,10 @@
             <span class="uppercase letter-spacing">Country:</span> <%= @event.city.country %>
           </div>
           <div class="padding-bottom-mini">
-            <span class="uppercase letter-spacing">Start:</span> <%= @event.start_hour %>:<%= @event.start_minute %>
+            <span class="uppercase letter-spacing">Start:</span> <%= @event.start_hour %>:<%= @event.start_minute %> <%= @event.start_am_pm %>
           </div>
           <div class="padding-bottom-mini">
-            <span class="uppercase letter-spacing">End:</span> <%= @event.end_hour %>:<%= @event.end_minute %>
+            <span class="uppercase letter-spacing">End:</span> <%= @event.end_hour %>:<%= @event.end_minute %> <%= @event.end_am_pm %>
           </div>
           <div class="padding-bottom-mini">
             <span class="uppercase letter-spacing">Venue:</span> <%= @event.venue %>
