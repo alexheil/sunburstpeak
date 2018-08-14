@@ -27,7 +27,7 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.datetime :end_time
       t.float :latitude
       t.float :longitude
-      t.boolean :sponsored. default: false
+      t.boolean :sponsored, default: false
       t.string :slug
 
       t.timestamps
