@@ -78,7 +78,7 @@ class Events::EventsController < ApplicationController
     end
 
     def event_params
-      params.require(:event).permit(:city_id, :title, :venue, :category, :description, :what_to_bring, :what_to_wear, :where_to_park, :website, :address, :start_hour, :start_minute, :end_hour, :end_minute, :month, :day, :year, :start_time, :end_time, :latitude, :longitude, :image, :remove_image, :event_type, :start_am_pm, :end_am_pm)
+      params.require(:event).permit(:city_id, :title, :venue, :category, :description, :what_to_bring, :what_to_wear, :where_to_park, :website, :address, :start_hour, :start_minute, :end_hour, :end_minute, :month, :day, :year, :start_time, :end_time, :latitude, :longitude, :image, :remove_image, :event_type, :start_am_pm, :end_am_pm, :sponsored)
     end
 
 end
