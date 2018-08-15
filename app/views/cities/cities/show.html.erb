@@ -30,6 +30,10 @@
       <% end %>
 
       <img class="profile-image" src="<%= @city.image %>">
+
+      <div class="padding-top">
+        <%= @city.description %>
+      </div>
     </div>
 
     <%= render 'partials/ad_trash' %>
