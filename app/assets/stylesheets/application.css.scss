@@ -23,7 +23,7 @@ $border: #BEC8CE; /* LOBLOLLY */
 $red: #F44336; /* POMEGRANATE */
 $yellow: #ff9800; /* PIZAZZ */
 $black: #2F1A0C; /* GREEN KELP */
-$white: #F9F9F9; /* FAFAFA DESERT STORM */
+$white: #ffffff; /* FAFAFA DESERT STORM */
 $grey: #EEEEEE; /* GALLERY */
 $fancy: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
 
@@ -466,6 +466,20 @@ a {
   padding-bottom: 15vh;
 }
 
+.seventy {
+  margin: 0;
+  width: 70%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.thirty {
+  margin: 0;
+  width: 29%;
+  display: inline-block;
+  vertical-align: top;
+}
+
 .fifty {
   margin: 0;
   width: 50%;
@@ -812,10 +826,6 @@ select {
 
 @media screen and (max-width: 1024px) {
 
-  .container {
-    width: 98%;
-  }
-
   .form-container {
     width: 70%;
   }
@@ -881,13 +891,21 @@ select {
   }
 
   .two-column {
-    width: 100%;
-    padding-bottom: 1vh;
+    
   }
 
   .sixteen {
     width: 32%;
     padding-bottom: 1vh;
+  }
+
+  .seventy {
+    width: 100%;
+    padding-bottom: 1vh;
+  }
+
+  .thirty {
+    width: 100%;
   }
 
   .fifty {
