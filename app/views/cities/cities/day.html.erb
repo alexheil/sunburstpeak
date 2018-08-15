@@ -6,7 +6,7 @@
     <div class="padding-vertical">
 
       <div class="title">
-        <%= @city.title %>
+        <%= link_to @city.title, city_path(@city) %>
       </div>
 
       <%= calendar number_of_days: 1, events: @events do |date, events| %>
@@ -28,7 +28,7 @@
                   <%= pluralize(event.rsvps.count, "RSVP") %>
                 </div>
                 <div class="bold">
-                  <%= event.start_hour %>:<%= event.start_minute %> - <%= event.end_hour %>:<%= event.end_minute %>
+                  <%= event.start_hour %>:<%= event.start_minute %> <%= event.start_am_pm %> - <%= event.end_hour %>:<%= event.end_minute %> <%= event.end_am_pm %>
                 </div>
                 <div class="bold padding-bottom-mini">
                   <%= event.venue %>, <%= event.city.title %>

@@ -5,6 +5,8 @@ class City < ApplicationRecord
   geocoded_by :geocoding, :latitude => :latitude, :longitude => :longitude
   after_validation :geocode
 
+  default_scope -> { order('title') }
+
   has_many :events, dependent: :destroy
   has_many :things, dependent: :destroy
 

@@ -5,7 +5,7 @@
     <div class="padding-vertical">
 
       <div class="title">
-        <%= @user.username %>
+        <%= link_to @user.username, user_path(@user) %>
       </div>
 
       <%= calendar number_of_days: 1, events: @rsvps do |date, rsvps| %>
@@ -16,7 +16,7 @@
           <div class="flex padding-horizontal border-sides">
             <div class="twenty-two-image">
               <%= link_to(city_event_path(rsvp.event.city, rsvp.event)) do %>
-                <img class="thumbnail-image" srcset="https://inhabitat.com/wp-content/blogs.dir/1/files/2015/10/Joshua-Trees-in-Desert.jpg" width="100%" height="auto" />
+                <img class="thumbnail-image" srcset="<%= rsvp.event.image_url(:original) %>" width="100%" height="auto" />
               <% end %>
             </div>
             <div class="fifty">
@@ -27,7 +27,7 @@
                 <%= pluralize(rsvp.event.rsvps.count, "RSVP") %>
               </div>
               <div class="bold">
-                <%= rsvp.event.start_hour %>:<%= rsvp.event.start_minute %> - <%= rsvp.event.end_hour %>:<%= rsvp.event.end_minute %>
+                <%= rsvp.event.start_hour %>:<%= rsvp.event.start_minute %> <%= rsvp.event.start_am_pm %> - <%= rsvp.event.end_hour %>:<%= rsvp.event.end_minute %> <%= rsvp.event.end_am_pm %>
               </div>
               <div class="bold padding-bottom-mini">
                 <%= rsvp.event.venue %>, <%= rsvp.event.city.title %>

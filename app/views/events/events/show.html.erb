@@ -52,23 +52,21 @@
               </div>
             <% end %>
           <% end %>
+
+
           <div class="flex padding-bottom-mini">
-            <div class="thirty-two">
-              <div class="padding-bottom-mini facebook-button">
-                F
+            <div class="two-column">
+              <div class="padding-bottom-mini">
+                <a onclick="javascript:window.open('https://www.facebook.com/sharer/sharer.php?u=<%= city_event_url(@city, @event) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0)" class="facebook-button">F</a>
               </div>
             </div>
-            <div class="thirty-two">
-              <div class="padding-bottom-mini twitter-button">
-                T
-              </div>
-            </div>
-            <div class="thirty-two">
-              <div class="padding-bottom-mini reddit-button">
-                R
+            <div class="two-column">
+              <div class="padding-bottom-mini">
+                <a onclick="javascript:window.open('http://twitter.com/share?text=<%= @event.title %> - &amp;url=<%= city_event_url(@city, @event) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0)" class="twitter-button">T</a>
               </div>
             </div>
           </div>
+          
 
           <div class="padding-bottom-mini">
             <span class="uppercase letter-spacing">RSVPs:</span> <%= @event.rsvps.count %>
