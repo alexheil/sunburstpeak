@@ -10,7 +10,14 @@ class Users::UsersController < ApplicationController
   end
 
   def update
-    
+    @user = User.friendly.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:notice] = "Good job!"
+      redirect_to user_path(@path)
+    else
+      flash.now[:alert] = 'Bad job!'
+      redirect_to user_path(@path)
+    end
   end
 
   def day
@@ -26,6 +33,10 @@ class Users::UsersController < ApplicationController
       unless current_user == @user || current_user == @owner
         redirect_to root_url
       end
+    end
+
+    def user_params
+      params.require(:user).permit(:banned)
     end
 
 end

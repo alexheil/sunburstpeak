@@ -45,7 +45,7 @@
 
 
 <% if user_signed_in? && current_user.id == @owner.id %>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= form_for(@user, url: user_path(@user), html: { method: :put }) do |f| %>
     <div class="field">
       <%= f.check_box :banned %>
       <%= f.label :banned %>
