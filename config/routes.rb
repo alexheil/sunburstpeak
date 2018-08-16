@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     get 'register', to: 'users/registrations#new'
   end
 
-  resources :users, controller: 'users/users', only: :show do
+  resources :users, controller: 'users/users', only: [:show, :update] do
     member do
       get 'day'
       get 'month'
