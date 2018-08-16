@@ -104,7 +104,7 @@
 
     <div class="padding-vertical">
       <div class="flex">
-        <div class="two-column">
+        <div class="two-column-mobile">
           <div class="padding-bottom">
             <div class="uppercase letter-spacing">
               Description
@@ -130,7 +130,7 @@
               <%= @event.where_to_park %>
           </div>
         </div>
-        <div class="two-column">
+        <div class="two-column-mobile">
           <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@event.latitude},#{@event.longitude}&markers=#{@event.latitude},#{@event.longitude}&zoom=15&size=640x400&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8" %>
         </div>
       </div>

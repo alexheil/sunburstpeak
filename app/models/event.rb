@@ -9,6 +9,24 @@ class Event < ApplicationRecord
   geocoded_by :address, :latitude => :latitude, :longitude => :longitude
   after_validation :geocode
 
+  validates :title, presence: true, length: { maximum: 255 }
+  validates :image_data, presence: true, unless: :image_data?
+  validates :venue, presence: true, length: { maximum: 255 }
+  validates :address, presence: true, length: { maximum: 255 }
+  validates :description, presence: true, length: { maximum: 65536 }
+  validates :what_to_bring, presence: true, length: { maximum: 65536 }
+  validates :what_to_wear, presence: true, length: { maximum: 65536 }
+  validates :where_to_park, presence: true, length: { maximum: 65536 }
+  validates :start_hour, presence: true
+  validates :end_hour, presence: true
+  validates :start_minute, presence: true
+  validates :end_minute, presence: true
+  validates :start_am_pm, presence: true
+  validates :end_am_pm, presence: true
+  validates :month, presence: true
+  validates :day, presence: true
+  validates :year, presence: true
+
   belongs_to :user
   belongs_to :city
 

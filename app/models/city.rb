@@ -5,6 +5,14 @@ class City < ApplicationRecord
   geocoded_by :geocoding, :latitude => :latitude, :longitude => :longitude
   after_validation :geocode
 
+  validates :title, presence: true, length: { maximum: 255 }
+  validates :image, presence: true
+  validates :city, presence: true, length: { maximum: 50 }
+  validates :state, presence: true, length: { maximum: 50 }
+  validates :country, presence: true, length: { maximum: 50 }
+  validates :description, presence: true, length: { maximum: 65536 }
+
+
   default_scope -> { order('title') }
 
   has_many :events, dependent: :destroy

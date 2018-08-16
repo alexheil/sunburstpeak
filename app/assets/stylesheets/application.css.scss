@@ -769,6 +769,13 @@ select {
   vertical-align: top;
 }
 
+.two-column-mobile {
+  margin: 0;
+  width: 49%;
+  display: inline-block;
+  vertical-align: top;
+}
+
 .sixteen {
   margin: 0;
   width: 16%;
@@ -852,6 +859,10 @@ select {
     padding-bottom: 1vh;
   }
 
+  .two-column-mobile {
+    width: 100%;
+  }
+
 }
 
 
@@ -890,8 +901,8 @@ select {
     width: 100%;
   }
 
-  .two-column {
-    
+  .two-column-mobile {
+    width: 100%;
   }
 
   .sixteen {

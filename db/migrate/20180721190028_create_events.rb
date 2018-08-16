@@ -8,6 +8,13 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.string :image_data
       t.string :venue
       t.string :address
+      t.string :street_number
+      t.string :street_name
+      t.string :suite_number
+      t.string :city_name
+      t.string :state_name
+      t.string :country_name
+      t.string :zip_code
       t.string :category
       t.text :description
       t.text :what_to_bring

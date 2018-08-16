@@ -9,6 +9,15 @@ class Thing < ApplicationRecord
   geocoded_by :address, :latitude => :latitude, :longitude => :longitude
   after_validation :geocode
 
+  validates :title, presence: true, length: { maximum: 255 }
+  validates :image, presence: true
+  validates :venue, presence: true, length: { maximum: 255 }
+  validates :address, presence: true, length: { maximum: 255 }
+  validates :description, presence: true, length: { maximum: 65536 }
+  validates :what_to_bring, presence: true, length: { maximum: 65536 }
+  validates :what_to_wear, presence: true, length: { maximum: 65536 }
+  validates :where_to_park, presence: true, length: { maximum: 65536 }
+
   belongs_to :city
 
   has_many :likes, dependent: :destroy
