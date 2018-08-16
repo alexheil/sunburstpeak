@@ -5,7 +5,7 @@
     <div class="padding-vertical">
 
       <div class="title">
-        <%= @user.username %>
+        <%= @user.username %> | <%= link_to "Settings", edit_user_registration_path(@user) %>
       </div>
 
       <%= month_calendar events: (@rsvps) do |day, rsvps| %>    

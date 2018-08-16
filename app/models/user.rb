@@ -31,6 +31,12 @@ class User < ApplicationRecord
     end
   end
 
+  def self.rsvp_mailer
+    User.includes(:rsvps).where( :rsvps => 'Date.today' ).find_each do |user|
+      UserMailer.rsvp_email(user).deliver_now 
+    end
+  end
+
   def rsvped?(event)
     Rsvp.exists? user_id: id, event_id: event.id
   end
