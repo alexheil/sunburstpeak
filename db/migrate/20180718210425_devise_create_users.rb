@@ -37,6 +37,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.float :latitude
       t.float :longitude
 
+      t.boolean :banned, default: false
+
       t.timestamps null: false
     end
 

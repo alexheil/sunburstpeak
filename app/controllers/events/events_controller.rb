@@ -3,8 +3,10 @@ class Events::EventsController < ApplicationController
   before_action :authenticate_user!, except: :show
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :set_user
+  before_action :banned, except: [:show, :index]
 
   def show
+    @owner = User.friendly.find(1)
     @city = City.friendly.find(params[:city_id])
     @event = Event.friendly.find(params[:id])
   end
@@ -65,16 +67,24 @@ class Events::EventsController < ApplicationController
   private
 
     def correct_user
+      @owner = User.friendly.find(1)
       @city = City.friendly.find(params[:city_id])
       @event = Event.friendly.find(params[:id])
       @user = User.friendly.find(@event.user_id)
-      unless current_user == @user
+      unless current_user == @user || current_user = @owner
         redirect_to root_url
       end
     end
 
     def set_user
       @user = current_user
+    end
+
+    def banned
+      @user = current_user
+      if @user.banned?
+        redirect_to root_url
+      end
     end
 
     def event_params

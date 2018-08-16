@@ -5,7 +5,6 @@ class City < ApplicationRecord
   geocoded_by :geocoding, :latitude => :latitude, :longitude => :longitude
   after_validation :geocode
 
-  validates :title, presence: true, length: { maximum: 255 }
   validates :image, presence: true
   validates :city, presence: true, length: { maximum: 50 }
   validates :state, presence: true, length: { maximum: 50 }

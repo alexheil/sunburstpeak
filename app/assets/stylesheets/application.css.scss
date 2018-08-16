@@ -618,10 +618,10 @@ label {
   letter-spacing: $letterspacer;
 }
 
-input, textarea {
+/* input, textarea {
   -webkit-appearance: none;
   -webkit-border-radius: 0;
-}
+} */
 
 ::placeholder {
     color: $border;
