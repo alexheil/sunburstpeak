@@ -130,8 +130,8 @@
               <%= @event.where_to_park %>
           </div>
         </div>
-        <div class="two-column-mobile">
-          <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@event.latitude},#{@event.longitude}&markers=#{@event.latitude},#{@event.longitude}&zoom=15&size=640x400&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8" %>
+        <div class="two-column-mobile google_map">
+          <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@event.latitude},#{@event.longitude}&markers=#{@event.latitude},#{@event.longitude}&zoom=15&size=704x440&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8" %>
         </div>
       </div>
     </div>

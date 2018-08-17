@@ -27,6 +27,8 @@ class Event < ApplicationRecord
   validates :day, presence: true
   validates :year, presence: true
 
+  validate :time_calculator
+
   belongs_to :user
   belongs_to :city
 
@@ -40,12 +42,18 @@ class Event < ApplicationRecord
   private
 
     def time_calculator
-      if self.start_am_pm == "am" && self.end_am_pm == 'am'
-        self.start_hour < self.end_hour
-      elsif self.start_am_pm == "pm" && self.end_am_pm == 'pm'
-        self.start_hour < self.end_hour
+      if self.start_am_pm == "am" && self.end_am_pm == "am"
+        unless self.start_hour.to_i < self.end_hour.to_i
+          errors.add(:end_hour, :invalid)
+        end
+      elsif self.start_am_pm == "pm" && self.end_am_pm == "pm"
+        unless self.start_hour.to_i < self.end_hour.to_i
+          errors.add(:end_hour, :invalid)
+        end
       elsif self.start_am_pm == "pm"
-        self.end_am_pm == "pm"
+        unless self.end_am_pm == "pm"
+          errors.add(:end_am_pm, :invalid)
+        end
       end
     end
 

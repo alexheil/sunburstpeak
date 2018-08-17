@@ -56,3 +56,15 @@ var getFilename = function() {
 
 $(document).ready(getFilename);
 $(document).on('turbolinks:load', getFilename);
+
+
+var flashTimeout = function() {
+
+  setTimeout(function() {
+    $('.flash_js').fadeOut();
+  }, 5000);
+
+};
+
+$(document).ready(flashTimeout);
+$(document).on('turbolinks:load', flashTimeout);

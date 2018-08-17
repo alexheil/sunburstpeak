@@ -176,6 +176,36 @@ a {
   letter-spacing: $letterspacer;
 }
 
+/* *************** FLASH ***************** */
+
+.flash {
+  position: fixed;
+  margin: 0 auto;
+  z-index: 1006;
+  width: 60%;
+  top: 0;
+  left: 20%;
+}
+
+.alert-notice {
+  border-bottom: 3px solid $green;
+  border-left: 3px solid $green;
+  border-right: 3px solid $green;
+  background: $white;
+}
+
+.alert-alert {
+  border-bottom: 10px solid $red;
+  background: $white;
+}
+
+.alert {
+  width: 90%;
+  margin: 0 auto;
+  padding: 1vh 0;
+  font-family: $fancy;
+}
+
 /* ***************** CALENDAR ******************* */
 
 .simple-calendar th {
@@ -532,11 +562,6 @@ a {
   -webkit-transition: .3s ease-in-out;
   -moz-transition: .3s ease-in-out;
   -o-transition: .3s ease-in-out;
-  &:hover {
-    -webkit-transition: .3s ease-in-out;
-    -moz-transition: .3s ease-in-out;
-    -o-transition: .3s ease-in-out;
-  }
 }
 
 .profile-image {
@@ -548,11 +573,6 @@ a {
   -webkit-transition: .3s ease-in-out;
   -moz-transition: .3s ease-in-out;
   -o-transition: .3s ease-in-out;
-  &:hover {
-    -webkit-transition: .3s ease-in-out;
-    -moz-transition: .3s ease-in-out;
-    -o-transition: .3s ease-in-out;
-  }
 }
 
 .post-content {
@@ -831,6 +851,21 @@ select {
     background: $grey;
     border: 1px solid $grey;
   }
+}
+
+.google_map {
+  overflow:hidden;
+  display: block;
+  position: relative;
+  background-size: cover;
+  height: 0;
+  padding-bottom: 100%;
+}
+
+.google_map img {
+  width: 704px;
+  height: 440px;
+  position: absolute;
 }
 
 /* ******************* MEDIA QUERIES *************** */
