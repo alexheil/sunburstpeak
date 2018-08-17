@@ -15,7 +15,7 @@
  *= require_self
  */
 
-$main: #DA8E6B; /* OCEAN GREEN */
+$main: #DF803C; /* OCEAN GREEN */
 $light: #FFD3B5; /* SPRING RAIN */
 $dark: #CE414F; /* HOKEY POKEY */
 $green: #47B975; /* OCEAN GREEN */
@@ -258,7 +258,13 @@ a {
 }
 
 .simple-calendar .today {
-  background: $light;
+  background: $main;
+  .events {
+    color: $white;
+  }
+  .day {
+    color: $white;
+  }
 }
 
 .simple-calendar .next-month {
