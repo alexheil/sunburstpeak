@@ -105,6 +105,14 @@
             <%= f.text_area :where_to_park, class: "text-area" %>
           </div>
 
+          <div class="field flex">
+            <label class="checked-tab" id="free-tab" for="is-free-click">Free?</label>
+            <%= f.radio_button(:event_type, "free", id: "is-free-click", checked: true) %>
+
+            <label class="unchecked-tab" id="paid-tab" for="is-paid-click">Paid?</label>
+            <%= f.radio_button(:event_type, "paid", id: "is-paid-click") %>
+          </div>
+
           <div class="field">
             <%= f.label :city_id %>
             <%= f.hidden_field :city_id %>

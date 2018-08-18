@@ -27,6 +27,9 @@
                 <div class="only-mobile bold">
                   <%= pluralize(event.rsvps.count, "RSVP") %>
                 </div>
+                <div class="bold uppercase">
+                  <%= event.event_type %>
+                </div>
                 <div class="bold">
                   <%= event.start_hour %>:<%= event.start_minute %> <%= event.start_am_pm %> - <%= event.end_hour %>:<%= event.end_minute %> <%= event.end_am_pm %>
                 </div>
