@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20180804194353) do
     t.text     "what_to_bring"
     t.text     "what_to_wear"
     t.text     "where_to_park"
+    t.integer  "price"
     t.string   "website"
     t.string   "start_hour"
     t.string   "end_hour"
