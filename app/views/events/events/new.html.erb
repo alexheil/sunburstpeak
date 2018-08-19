@@ -112,6 +112,13 @@
             <%= f.radio_button(:event_type, "paid", id: "is-paid-click") %>
           </div>
 
+          <div class="price-click">
+            <div class="field">
+              <%= f.label :price %>
+              <%= f.text_field :price, class: "text-field" %>
+            </div>
+          </div>
+
           <div class="field">
             <%= f.label :city_id %>
             <%= f.hidden_field :city_id %>

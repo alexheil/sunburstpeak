@@ -43,7 +43,7 @@ var getFilename = function() {
     $('#free-tab').addClass("checked-tab");
     $('#paid-tab').removeClass("checked-tab");
     $('#paid-tab').addClass("unchecked-tab");
-    $('.price-check').fadeOut();
+    $('.price-click').hide();
   });
 
   $('#paid-tab').click(function() {
@@ -51,7 +51,7 @@ var getFilename = function() {
     $('#free-tab').removeClass("checked-tab");
     $('#paid-tab').addClass("checked-tab");
     $('#paid-tab').removeClass("unchecked-tab");
-    $('.price-check').fadeIn();
+    $('.price-click').fadeIn();
   });
 
 };

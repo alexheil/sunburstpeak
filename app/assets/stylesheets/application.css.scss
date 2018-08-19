@@ -644,10 +644,12 @@ label {
   letter-spacing: $letterspacer;
 }
 
-/* input, textarea {
+input, textarea {
   -webkit-appearance: none;
   -webkit-border-radius: 0;
-} */
+  margin: 0;
+  display: block;
+}
 
 ::placeholder {
     color: $border;
