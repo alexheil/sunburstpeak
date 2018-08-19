@@ -72,6 +72,9 @@
             <span class="uppercase letter-spacing">RSVPs:</span> <%= @event.rsvps.count %>
           </div>
           <div class="padding-bottom-mini">
+            <span class="uppercase letter-spacing">Type:</span> <%= @event.event_type.capitalize %><%= " - $" + @event.price.to_s if @event.paid? %>
+          </div>
+          <div class="padding-bottom-mini">
             <span class="uppercase letter-spacing">Date:</span> <%= @event.month %>.<%= @event.day %>.<%= @event.year %>
           </div>
           <div class="padding-bottom-mini">

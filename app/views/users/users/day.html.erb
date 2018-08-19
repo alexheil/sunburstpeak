@@ -27,7 +27,7 @@
                 <%= pluralize(rsvp.event.rsvps.count, "RSVP") %>
               </div>
               <div class="bold uppercase">
-                <%= rsvp.event.event_type %><%= " - " + rsvp.event.price if rsvp.event.paid? %>
+                <%= rsvp.event.event_type %><%= " - $" + rsvp.event.price.to_s if rsvp.event.paid? %>
               </div>
               <div class="bold">
                 <%= rsvp.event.start_hour %>:<%= rsvp.event.start_minute %> <%= rsvp.event.start_am_pm %> - <%= rsvp.event.end_hour %>:<%= rsvp.event.end_minute %> <%= rsvp.event.end_am_pm %>
