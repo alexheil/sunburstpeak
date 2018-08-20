@@ -13,6 +13,7 @@ class Event < ApplicationRecord
   validates :image_data, presence: true, unless: :image_data?
   validates :venue, presence: true, length: { maximum: 255 }
   validates :address, presence: true, length: { maximum: 255 }
+  validates :website, format: { with: /\A((http|https)?:\/\/)?(www.)?[a-zA-Z0-9]+.[a-z]+\/?/i }, allow_blank: true
   validates :description, presence: true, length: { maximum: 65536 }
   validates :what_to_bring, presence: true, length: { maximum: 65536 }
   validates :what_to_wear, presence: true, length: { maximum: 65536 }
@@ -26,6 +27,7 @@ class Event < ApplicationRecord
   validates :month, presence: true
   validates :day, presence: true
   validates :year, presence: true
+  validates :price, presence: true, if: :is_for_sale
 
   validate :time_calculator
 
@@ -38,8 +40,15 @@ class Event < ApplicationRecord
   before_save :generated_slug
   before_save :pick_date
   before_save :time_calculator
+  before_save :smart_add_url_protocol
 
   private
+
+    def smart_add_url_protocol
+      unless self.website[/\Ahttp:\/\//] || self.website[/\Ahttps:\/\//]
+        self.website = "https://#{self.website}" unless website.blank?
+      end
+    end
 
     def time_calculator
       if self.start_am_pm == "am" && self.end_am_pm == "am"
@@ -55,6 +64,10 @@ class Event < ApplicationRecord
           errors.add(:end_am_pm, :invalid)
         end
       end
+    end
+
+    def is_for_sale
+      self.paid?
     end
 
     def generated_slug
