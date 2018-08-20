@@ -60,6 +60,7 @@ $(document).ready(getFilename);
 $(document).on('turbolinks:load', getFilename);
 
 
+
 var flashTimeout = function() {
 
   setTimeout(function() {
