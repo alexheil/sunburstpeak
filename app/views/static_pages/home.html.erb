@@ -5,14 +5,14 @@
     
 
     <div class="home-center-height">
-      <div class="padding-bottom-mini post-title center">
+      <div class="padding-bottom-mini home-post-title center">
         Every event. Everywhere.
       </div>
-      <div class="flex title">
-        <div class="two-column right">
+      <div class="flex home-title">
+        <div class="two-column-mobile center">
           What's going on in...
         </div>
-        <div class="two-column home-container">
+        <div class="two-column-mobile center home-container">
           <%= select_tag 'city_id', options_from_collection_for_select(@cities, "slug", "title") %>
         </div>
       </div>
@@ -22,24 +22,14 @@
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-    <script>
-        $(function(){
-          $('#city_id').bind('change', function () {
-             var url = "/cities/" + $(this).val()
-              if (url) {
-                  window.location.replace(url);
-              }
-              return false;
-          });
-        });
-    </script>
+<script>
+    $(function(){
+      $('#city_id').bind('change', function () {
+         var url = "/cities/" + $(this).val()
+          if (url) {
+              window.location.replace(url);
+          }
+          return false;
+      });
+    });
+</script>

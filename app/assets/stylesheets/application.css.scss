@@ -141,6 +141,24 @@ a {
   letter-spacing: $letterspacer;
 }
 
+.home-post-title {
+  @include transition;
+  color: $black;
+  font-weight: 300;
+  font-size: $med;
+  line-height: 1em;
+  letter-spacing: $letterspacer;
+}
+
+.home-title {
+  @include transition;
+  color: $black;
+  font-weight: 300;
+  line-height: 1.25em;
+  letter-spacing: $letterspacer;
+  font-size: $large;
+}
+
 .bold {
   font-weight: 600;
 }
@@ -942,6 +960,21 @@ select {
 
   .post-title {
     font-size: $smed;
+  }
+
+  .home-post-title {
+    font-size: 1em;
+  }
+
+  .home-title {
+    font-size: 1em;
+    line-height: 2em
+  }
+
+  .home-container {
+    select {
+      text-align: center;
+    }
   }
 
   .mid-container {
