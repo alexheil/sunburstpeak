@@ -40,7 +40,7 @@ class Event < ApplicationRecord
   before_save :generated_slug
   before_save :pick_date
   before_save :time_calculator
-  before_save :smart_add_url_protocol
+  #before_save :smart_add_url_protocol
 
   private
 
