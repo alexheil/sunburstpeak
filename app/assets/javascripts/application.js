@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require_tree .
 
+
 var getFilename = function() {
 
   $('input[type="file"]').change(function(e){
