@@ -1,10 +1,10 @@
 <% content_for :event_og_header do %>
   <meta property="og:url" content="<%= city_event_url(@city, @event) %>" />
-  <meta property="og:title" content="<%= @event.title %>" />
+  <meta property="og:title" content="<%= @event.month %>.<%= @event.day %>.<%= @event.year %> - <%= @event.title %>" />
   <meta property="og:description" content="<%= truncate(@event.description, length: 140) %>" />
   <meta property="og:image" content="<%= @event.image_url(:original) %>" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="<%= @event.title %>" />
+  <meta name="twitter:title" content="<%= @event.month %>.<%= @event.day %>.<%= @event.year %> - <%= @event.title %>" />
   <meta name="twitter:description" content="<%= truncate(@event.description, length: 140) %>" />
   <meta name="twitter:image" content="<%= @event.image_url(:original) %>" />
   <meta name="twitter:url" content="<%= city_event_url(@city, @event) %>" />
