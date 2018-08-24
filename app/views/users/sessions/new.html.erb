@@ -23,6 +23,11 @@
             <%= f.password_field :password, autocomplete: "off", class: "text-field" %>
           </div>
 
+          <div class="field">
+            <label class="unchecked-tab" id="paid-tab" for="is-paid-click">Remember me?</label>
+            <%= f.check_box(:remember_me, id: "is-paid-click") %>
+          </div>
+
           <div class="padding-bottom">
             <%= f.submit "Sign in", class: "submit-button" %>
           </div>

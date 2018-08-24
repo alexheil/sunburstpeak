@@ -47,8 +47,8 @@
 <% if user_signed_in? && current_user.id == @owner.id %>
   <%= form_for(@user, url: user_path(@user), html: { method: :put }) do |f| %>
     <div class="field">
-      <%= f.check_box :banned %>
-      <%= f.label :banned %>
+      <label class="unchecked-tab" id="paid-tab" for="is-paid-click">Banned?</label>
+            <%= f.check_box(:banned, "banned", id: "is-paid-click") %>
     </div>
     <div class="actions">
       <%= f.submit "Update", class: "submit-button" %>
