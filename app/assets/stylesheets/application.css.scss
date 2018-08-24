@@ -213,7 +213,9 @@ a {
 }
 
 .alert-alert {
-  border-bottom: 10px solid $red;
+  border-bottom: 3px solid $dark;
+  border-left: 3px solid $dark;
+  border-right: 3px solid $dark;
   background: $white;
 }
 
@@ -951,6 +953,12 @@ select {
 
   .only-mobile-table {
     display: table-row;
+  }
+
+  .flash {
+    z-index: 1006;
+    width: 98%;
+    left: 1%;
   }
 
   .title {
