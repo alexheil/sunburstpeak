@@ -48,7 +48,7 @@ class Cities::CitiesController < ApplicationController
 
   def day
     @city = City.friendly.find(params[:id])
-    @events = Event.all
+    @events = @city.events
   end
 
   private
