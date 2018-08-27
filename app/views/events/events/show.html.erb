@@ -69,10 +69,10 @@
           
 
           <div class="padding-bottom-mini">
-            <span class="letter-spacing">RSVPs:</span> <%= @event.rsvps.count %>
+            <span class="bold letter-spacing">RSVPs:</span> <%= @event.rsvps.count %>
           </div>
           <div class="padding-bottom-mini">
-            <span class="uppercase letter-spacing">Type:</span> <%= @event.event_type.capitalize %><%= " - $" + @event.price.to_s if @event.paid? %>
+            <span class="bold uppercase letter-spacing">Type:</span> <%= @event.event_type.capitalize %><%= " - $" + @event.price.to_s if @event.paid? %>
           </div>
           <div class="padding-bottom-mini">
             <span class="bold uppercase letter-spacing">Date:</span> <%= @event.month %>.<%= @event.day %>.<%= @event.year %>
