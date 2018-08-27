@@ -340,7 +340,7 @@ a {
     width: 50%;
     padding: 0;
     margin: 0;
-    text-align: center;
+    text-align: right;
     display: inline-block;
     li {
       width: 25%;
@@ -1050,6 +1050,7 @@ select {
     ul {
       width: 100%;
       display: block;
+      text-align: center;
       li {
         width: 30%;
         text-align: center;

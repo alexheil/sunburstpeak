@@ -100,25 +100,25 @@
             <div class="uppercase letter-spacing">
               Description
             </div>
-              <%= @thing.description %>
+              <%= sanitize(@thing.description) %>
           </div>
           <div class="padding-bottom">
             <div class="uppercase letter-spacing">
               What to wear
             </div>
-              <%= @thing.what_to_wear %>
+              <%= sanitize(@thing.what_to_wear) %>
           </div>
           <div class="padding-bottom">
             <div class="uppercase letter-spacing">
               What to bring
             </div>
-              <%= @thing.what_to_bring %>
+              <%= sanitize(@thing.what_to_bring) %>
           </div>
           <div class="padding-bottom">
             <div class="uppercase letter-spacing">
               Where to park
             </div>
-              <%= @thing.where_to_park %>
+              <%= sanitize(@thing.where_to_park) %>
           </div>
         </div>
         <div class="two-column-mobile">

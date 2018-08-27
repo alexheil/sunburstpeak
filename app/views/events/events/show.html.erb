@@ -112,25 +112,25 @@
             <div class="uppercase letter-spacing">
               Description
             </div>
-              <%= @event.description %>
+              <%= sanitize(@event.description) %>
           </div>
           <div class="padding-bottom">
             <div class="uppercase letter-spacing">
               What to wear
             </div>
-              <%= @event.what_to_wear %>
+              <%= sanitize(@event.what_to_wear) %>
           </div>
           <div class="padding-bottom">
             <div class="uppercase letter-spacing">
               What to bring
             </div>
-              <%= @event.what_to_bring %>
+              <%= sanitize(@event.what_to_bring) %>
           </div>
           <div class="padding-bottom">
             <div class="uppercase letter-spacing">
               Where to park
             </div>
-              <%= @event.where_to_park %>
+              <%= sanitize(@event.where_to_park) %>
           </div>
         </div>
         <div class="two-column-mobile google_map">
