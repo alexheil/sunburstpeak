@@ -37,7 +37,7 @@
                   <%= event.venue %>, <%= event.city.title %>
                 </div>
                 <div class="padding-bottom-mini">
-                  <%= event.description %>
+                  <%= event.description.truncate(300) %>
                 </div>
               </div>
               <div class="no-mobile twenty-two center center-height title-lower">
