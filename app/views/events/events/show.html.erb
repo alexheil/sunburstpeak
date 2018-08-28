@@ -1,4 +1,4 @@
-<%= provide(:title, sanitize(@event.title)) %>
+<%= provide(:title, sanitize(@event.title) = " in " + sanitize(@city.title)) %>
 <%= render 'events/partials/events_twitter_cards' %>
 
 <div class="wrapper">
