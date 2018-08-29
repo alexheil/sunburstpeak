@@ -1,0 +1,15 @@
+<% if user_signed_in? && current_user.rsvped?(@event) %>
+  <div class="padding-bottom-mini">
+    <%= link_to "Delete RSVP", city_event_rsvp_path(@city, @event, current_user.rsvp_id(@event)), method: :delete, remote: true, class: "submit-button" %>
+  </div>
+<% elsif user_signed_in? %>
+  <div class="padding-bottom-mini">
+    <%= link_to "RSVP", city_event_rsvps_path(@city, @event), :method => :post, remote: true, class: "submit-button" %>
+  </div>
+<% else %>
+  <%= link_to(sign_in_path) do %>
+    <div class="submit-button margin-bottom-mini">
+      RSVP
+    </div>
+  <% end %>
+<% end %>

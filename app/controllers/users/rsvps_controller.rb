@@ -11,12 +11,11 @@ class Users::RsvpsController < ApplicationController
     @rsvp.event_id = @event.id
     @rsvp.start_time = @event.start_time
     if @rsvp.save
-      redirect_to city_event_path(@city, @event)
-      # respond_to do |format|
-      #   format.html { redirect_to city_event_path(@city, @event) }
-      #   format.js { render :action => "rsvps" }
-      #   flash.now[:notice] = "You have successfully rsvped #{@event.title}!"
-      # end
+      respond_to do |format|
+        format.html { redirect_to city_event_path(@city, @event) }
+        format.js { render :action => "rsvps" }
+        flash.now[:notice] = "You have successfully rsvped to #{@event.title}!"
+      end
     else
       redirect_to city_event_path(@city, @event)
       flash[:alert] = "You have failed."
@@ -28,12 +27,11 @@ class Users::RsvpsController < ApplicationController
     @city = City.friendly.find(params[:city_id])
     @event = Event.friendly.find(params[:event_id])
     @user.unrsvp(@event)
-    redirect_to city_event_path(@city, @event)
-    # respond_to do |format|
-    #   format.html { redirect_to city_event_path(@city, @event) }
-    #   format.js { render :action => "rsvps" }
-    #   flash.now[:notice] = "You unrsvped #{@event.title}!"
-    # end
+    respond_to do |format|
+      format.html { redirect_to city_event_path(@city, @event) }
+      format.js { render :action => "rsvps" }
+      flash.now[:notice] = "You unrsvped to #{@event.title}!"
+    end
   end
 
 end

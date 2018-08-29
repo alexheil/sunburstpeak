@@ -1,0 +1,7 @@
+$('.likes_button').html('<%=  escape_javascript(render :partial => 'users/partials/likes/likes_button') %>');
+$('.likes_count').html('<%=  escape_javascript(render :partial => 'users/partials/likes/likes_count') %>');
+$('.flash_js').fadeIn(300);
+$('.flash_js').html('<%=  escape_javascript(render :partial => 'partials/flash') %>');
+setTimeout(function() {
+  $('.flash_js').fadeOut(3000);
+}, 5000);

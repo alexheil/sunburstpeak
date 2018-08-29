@@ -37,22 +37,7 @@
 
         <div class="thirty">
 
-          <% if user_signed_in? && current_user.liked?(@thing) %>
-            <div class="padding-bottom-mini">
-              <%= link_to "Unlike", city_thing_like_path(@city, @thing, current_user.like_id(@thing)), method: :delete, class: "submit-button" %>
-            </div>
-          <% elsif user_signed_in? %>
-            <div class="padding-bottom-mini">
-              <%= link_to "Like", city_thing_likes_path(@city, @thing), :method => :post, class: "submit-button" %>
-            </div>
-          <% else %>
-            <%= link_to(sign_in_path) do %>
-              <div class="submit-button margin-bottom-mini">
-                Like
-              </div>
-            <% end %>
-          <% end %>
-
+          <div class="likes_button"><%= render 'users/partials/likes/likes_button' %></div>
 
           <div class="flex padding-bottom-mini">
             <div class="two-column">
@@ -69,7 +54,7 @@
           
 
           <div class="padding-bottom-mini">
-            <span class="bold uppercase letter-spacing">Likes:</span> <%= @thing.likes.count %>
+            <span class="bold uppercase letter-spacing">Likes:</span> <span class="likes_count"><%= render 'users/partials/likes/likes_count' %></span>
           </div>
           <div class="padding-bottom-mini">
             <span class="bold uppercase letter-spacing">City:</span> <%= link_to @thing.city.city, city_path(@city) %>
