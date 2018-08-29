@@ -13,7 +13,12 @@
           What's going on in...
         </div>
         <div class="two-column-mobile center home-container">
-          <%= select_tag 'city_id', options_from_collection_for_select(@cities, "slug", "title") %>
+          <select onchange="window.location=this.value">
+            <option>your city?</option>
+            <% @cities.each do |c| %> 
+              <option value="cities/<%= c.slug %>"><%= c.title %></option>
+            <% end %>
+          </select>
         </div>
       </div>
     </div>
@@ -21,15 +26,3 @@
 
   </div>
 </div>
-
-<script>
-    $(function(){
-      $('#city_id').bind('change', function () {
-         var url = "/cities/" + $(this).val()
-          if (url) {
-              window.location.replace(url);
-          }
-          return false;
-      });
-    });
-</script>

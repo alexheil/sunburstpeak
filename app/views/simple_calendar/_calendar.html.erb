@@ -1,4 +1,9 @@
 <div class="simple-calendar">
+
+  <% if @city %>
+    <%= provide(:title, "Events on " + start_date.to_date.strftime('%B %-d, %Y') + " in " + sanitize(@city.title)) %>
+  <% end %>
+
   <div class="calendar-heading">
     <%= link_to t('simple_calendar.previous', default: '<<'), calendar.url_for_previous_view %>
     <span class="calendar-title">

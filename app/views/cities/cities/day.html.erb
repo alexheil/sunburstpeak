@@ -1,4 +1,4 @@
-<%= provide(:title, sanitize(@city.title)) %>
+
 <%= render 'cities/partials/cities_twitter_cards' %>
 
 <div class="wrapper">
@@ -11,6 +11,7 @@
 
       <%= calendar number_of_days: 1, events: @events do |date, events| %>
         <% events.each do |event| %>
+        
 
 
           <div class="padding-bottom">
