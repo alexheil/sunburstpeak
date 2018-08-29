@@ -2,6 +2,7 @@
 
   def home
     @cities = City.all
+    @events = Event.all
   end
 
   def about

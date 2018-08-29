@@ -23,7 +23,7 @@
               </div>
               <div class="fifty">
                 <div class="post-title padding-bottom-mini">
-                  <%= link_to event.title, city_event_path(event.city, event) %>
+                  <%= link_to event.title, city_event_path(@city, event) %>
                 </div>
                 <div class="only-mobile bold">
                   <%= pluralize(event.rsvps.count, "RSVP") %>
@@ -35,7 +35,7 @@
                   <%= event.start_hour %>:<%= event.start_minute %> <%= event.start_am_pm %> - <%= event.end_hour %>:<%= event.end_minute %> <%= event.end_am_pm %>
                 </div>
                 <div class="bold padding-bottom-mini">
-                  <%= event.venue %>, <%= event.city.title %>
+                  <%= event.venue %>, <%= @city.title %>
                 </div>
                 <div class="padding-bottom-mini">
                   <%= event.description.truncate(300) %>

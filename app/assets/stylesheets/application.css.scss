@@ -159,6 +159,16 @@ a {
   font-size: 2em;
 }
 
+.home-body-container {
+  width: 100%;
+  background: $white;
+  color: $black;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
 .bold {
   font-weight: 700;
 }
@@ -523,7 +533,7 @@ a {
 
 .home-center-height {
   padding-top: 30vh;
-  padding-bottom: 15vh;
+  padding-bottom: 30vh;
 }
 
 .seventy {
@@ -696,11 +706,12 @@ input, textarea {
 .home-container {
   select {
     font-weight: 100;
-    background: transparent;
+    background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right transparent;
     letter-spacing: $letterspacer;
-    line-height: 3vh;
-    height: 3vh;
+    line-height: 4vh;
+    height: 4vh;
     color: $main;
+    width: auto;
   }
 }
 
@@ -904,15 +915,9 @@ select {
 /* ******************* MEDIA QUERIES *************** */
 
 @media screen and (max-width: 1024px) {
-
+e-
   .form-container {
     width: 70%;
-  }
-
-  .home-container {
-    select {
-      width: 60%;
-    }
   }
 
   .fifty {
@@ -981,9 +986,10 @@ select {
     font-size: 1em;
   }
 
-  .home-title {
-    font-size: 1em;
-    line-height: 2em
+  .home-container {
+    select {
+      background: transparent;
+    }
   }
 
   .mid-container {
