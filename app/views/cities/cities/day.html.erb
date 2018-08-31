@@ -5,14 +5,13 @@
   <div class="container">
     <div class="padding-vertical">
 
-      <div class="title">
+      <div class="title">ß
         <%= link_to @city.title, city_path(@city) %>
       </div>
 
       <%= calendar number_of_days: 1, events: @events do |date, events| %>
         <% events.each do |event| %>
         
-
 
           <div class="padding-bottom">
             <div class="flex padding-horizontal border-sides">

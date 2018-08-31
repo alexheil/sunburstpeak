@@ -16,6 +16,8 @@
         <th><%= link_to t('date.month_names')[start_date.month] + " #{start_date.year}", user_path(@user) + "?start_date=#{start_date.year}-#{start_date.month}-#{start_date.day}" %></th>
       <% elsif @city %>
         <th><%= link_to t('date.month_names')[start_date.month] + " #{start_date.year}", city_path(@city) + "?start_date=#{start_date.year}-#{start_date.month}-#{start_date.day}" %></th>
+      <% else %>
+      <th><%= t('date.month_names')[start_date.month] + " #{start_date.year}" %> | Day number <%= start_date.to_date.yday %></th>
       <% end %>
 
     </span>
